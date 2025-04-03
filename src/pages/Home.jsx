@@ -101,31 +101,24 @@ const HeroSection = styled.section`
     flex-direction: column;
     gap: 1rem;
     justify-content: center;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
     
     @media (min-width: 640px) {
       flex-direction: row;
+      gap: 1.5rem;
+      padding: 0;
     }
-  }
-  
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2rem;
-    height: 3rem;
-    border: 2px solid white;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
     
-    .dot {
-      width: 0.5rem;
-      height: 0.5rem;
-      background: white;
-      border-radius: 50%;
-      margin-top: 0.5rem;
+    a {
+      min-width: auto;
+      width: 100%;
+      text-align: center;
+      
+      @media (min-width: 640px) {
+        width: auto;
+        min-width: 180px;
+      }
     }
   }
 `;
@@ -489,16 +482,6 @@ const CTASection = styled.section`
 `;
 
 const Home = () => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end start"]
-  });
-  
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
-
   // Sample event date - replace with actual date
   const eventDate = "2025-04-24T09:00:00";
 
@@ -548,11 +531,10 @@ const Home = () => {
  return (
     <div style={{ margin: 0, padding: 0, overflow: 'hidden', width: '100%' }}>
       {/* Hero Section */}
-      <HeroSection ref={targetRef}>
-        <motion.div style={{ opacity, scale, y }}>
+      <HeroSection>
+        <div>
           <img 
             src="https://images.unsplash.com/photo-1558019142-6b6290019b3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80" 
-            // alt="Ocean Background" 
             className="hero-bg"
           />
           
@@ -568,7 +550,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.8, delay: 0.2 }}
               className="hero-content"
-              style={{ marginTop: "-3rem" }} /* Added negative margin to move content up */
+              style={{ marginTop: "-3rem" }}
             >
              
               <motion.img 
@@ -625,33 +607,27 @@ const Home = () => {
               </div>
               
               <div className="buttons">
-                <a 
+                <motion.a 
                   href="/src/assets/Samskruthi2k25.pdf" 
                   download
                   className="btn-primary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Download Brochure
-                </a>
-                <a href="#register" className="btn-primary">
+                </motion.a>
+                <motion.a 
+                  href="#register" 
+                  className="btn-primary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   Register Now
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           </div>
-          
-          {/* Scroll indicator */}
-          <motion.div 
-            className="scroll-indicator"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            <motion.div 
-              className="dot"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-            />
-          </motion.div>
-        </motion.div>
+        </div>
       </HeroSection>
 
       {/* About Section */}

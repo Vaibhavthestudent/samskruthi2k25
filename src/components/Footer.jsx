@@ -6,19 +6,44 @@ import styled from 'styled-components';
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
-  justify-content: center; /* Center the logos horizontally */
-  width: 100%; /* Take full width */
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  max-width: 800px;
+  gap: 2rem;
+  flex-wrap: wrap;
   
   img {
     height: 60px;
     width: auto;
-    margin-right: 1rem;
+    object-fit: contain;
+    
+    @media (max-width: 768px) {
+      height: 50px;
+    }
+    
+    @media (max-width: 480px) {
+      height: 40px;
+    }
   }
   
   .college-logo {
-    height: 100px; /* Increased from 50px to 70px */
+    height: 100px;
+    
+    @media (max-width: 768px) {
+      height: 80px;
+    }
+    
+    @media (max-width: 480px) {
+      height: 60px;
+    }
   }
+`;
+
+const FooterContent = styled.div`
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 const Footer = () => {
@@ -26,33 +51,38 @@ const Footer = () => {
 
   return (
     <footer className="bg-deep-blue text-white pt-12 pb-6 relative overflow-hidden">
-      {/* Decorative Bubbles */}
-      <div className="absolute top-10 left-10 w-16 h-16 bubble opacity-20"></div>
-      <div className="absolute top-20 right-20 w-24 h-24 bubble opacity-30"></div>
-      <div className="absolute bottom-10 left-1/4 w-12 h-12 bubble opacity-25"></div>
+      {/* Decorative Bubbles - Hidden on mobile */}
+      <div className="absolute top-10 left-10 w-16 h-16 bubble opacity-20 hidden md:block"></div>
+      <div className="absolute top-20 right-20 w-24 h-24 bubble opacity-30 hidden md:block"></div>
+      <div className="absolute bottom-10 left-1/4 w-12 h-12 bubble opacity-25 hidden md:block"></div>
       
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Section */}
-          <div className="lg:col-span-4 text-center"> {/* Added text-center and span all columns */}
-            
-            <LogoContainer>
-              <img src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" />
-              <img src="/src/Resources/logos/EPGI_LOGO.png" alt="EPGI Logo" className="college-logo" style={{ maxWidth: '900px',
-                  filter: 'brightness(0) invert(1)', }}/>
-            </LogoContainer>
-            <p className="text-light-blue/80 mb-4">
-              The annual cultural fest of East Point Group of Institutions, celebrating talent, creativity, and cultural diversity.
-            </p>
-            
-          </div>
-        </div>
+      <FooterContent>
+        <LogoContainer>
+          <img 
+            src="/src/Resources/logos/samskruthilogo.png" 
+            alt="Samskruthi 2025 Logo" 
+            className="transition-all duration-300 hover:scale-105"
+          />
+          <img 
+            src="/src/Resources/logos/EPGI_LOGO.png" 
+            alt="EPGI Logo" 
+            className="college-logo transition-all duration-300 hover:scale-105"
+            style={{ 
+              filter: 'brightness(0) invert(1)',
+            }}
+          />
+        </LogoContainer>
+        <p className="text-light-blue/80 mb-8 text-sm md:text-base">
+          The annual cultural fest of East Point Group of Institutions, celebrating talent, creativity, and cultural diversity.
+        </p>
         
         {/* Copyright section */}
-        <div className="border-t border-white/10 mt-8 pt-6 text-center text-sm text-white/60">
-          <p>©  Samskruthi {currentYear}- East Point Group of Institutions. All rights reserved.</p>
+        <div className="border-t border-white/10 mt-8 pt-6">
+          <p className="text-xs md:text-sm text-white/60">
+            © Samskruthi {currentYear} - East Point Group of Institutions. All rights reserved.
+          </p>
         </div>
-      </div>
+      </FooterContent>
     </footer>
   );
 };

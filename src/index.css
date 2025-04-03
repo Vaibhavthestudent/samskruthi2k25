@@ -10,6 +10,12 @@
   --accent-color: #ff6b6b;
   --background-color: #f0f8ff;
   --text-color: #333;
+  
+  /* Responsive breakpoints */
+  --mobile: 480px;
+  --tablet: 768px;
+  --laptop: 1024px;
+  --desktop: 1200px;
 }
 
 body {
@@ -20,30 +26,125 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @layer components {
   .btn-primary {
     @apply bg-ocean-blue text-white font-semibold py-2 px-6 rounded-full hover:bg-deep-blue transition-all duration-300 shadow-md;
+    @media (max-width: 768px) {
+      @apply py-1.5 px-4 text-sm;
+    }
   }
   
   .btn-secondary {
     @apply bg-transparent border-2 border-ocean-blue text-ocean-blue font-semibold py-2 px-6 rounded-full hover:bg-ocean-blue hover:text-white transition-all duration-300;
+    @media (max-width: 768px) {
+      @apply py-1.5 px-4 text-sm;
+    }
   }
   
   .section-title {
     @apply text-3xl md:text-4xl font-bold text-deep-blue mb-8 relative;
+    @media (max-width: 768px) {
+      @apply text-2xl mb-6;
+    }
   }
   
   .section-title::after {
     @apply content-[''] absolute bottom-[-10px] left-0 w-20 h-1 bg-coral;
+    @media (max-width: 768px) {
+      @apply bottom-[-8px] w-16;
+    }
   }
   
   .card {
     @apply bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300;
+    @media (max-width: 768px) {
+      @apply rounded-md;
+    }
   }
   
   .bubble {
     @apply absolute rounded-full bg-light-blue/30 animate-float;
+    @media (max-width: 768px) {
+      @apply hidden;
+    }
+  }
+  
+  /* Responsive container */
+  .container {
+    @apply w-full max-w-7xl mx-auto px-4;
+    @media (max-width: 768px) {
+      @apply px-3;
+    }
+  }
+  
+  /* Responsive grid */
+  .grid-responsive {
+    @apply grid gap-4;
+    @media (min-width: 768px) {
+      @apply grid-cols-2;
+    }
+    @media (min-width: 1024px) {
+      @apply grid-cols-3;
+    }
+  }
+  
+  /* Responsive flex */
+  .flex-responsive {
+    @apply flex flex-col;
+    @media (min-width: 768px) {
+      @apply flex-row;
+    }
+  }
+  
+  /* Responsive text */
+  .text-responsive {
+    @apply text-base;
+    @media (max-width: 768px) {
+      @apply text-sm;
+    }
+  }
+  
+  /* Responsive spacing */
+  .space-responsive {
+    @apply space-y-4;
+    @media (min-width: 768px) {
+      @apply space-y-6;
+    }
+  }
+  
+  /* Responsive images */
+  .img-responsive {
+    @apply w-full h-auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive navigation */
+  .nav-responsive {
+    @apply flex flex-col;
+    @media (min-width: 768px) {
+      @apply flex-row;
+    }
+  }
+  
+  /* Responsive margins */
+  .m-responsive {
+    @apply m-4;
+    @media (max-width: 768px) {
+      @apply m-2;
+    }
+  }
+  
+  /* Responsive padding */
+  .p-responsive {
+    @apply p-4;
+    @media (max-width: 768px) {
+      @apply p-2;
+    }
   }
 }

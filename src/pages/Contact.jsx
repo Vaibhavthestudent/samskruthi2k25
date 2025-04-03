@@ -269,8 +269,8 @@ const Contact = () => {
                 </div>
                 <div className="content">
                   <h3>Address</h3>
-                  <p>RNSIT Campus, Channasandra,</p>
-                  <p>Bengaluru, Karnataka 560098</p>
+                  <p>East Point Group of Institutions</p>
+                  <p>Bengaluru, Karnataka 560015</p>
                 </div>
               </ContactItem>
               

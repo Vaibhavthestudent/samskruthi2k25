@@ -4,9 +4,17 @@ import styled from 'styled-components';
 import { FaHandshake, FaArrowRight } from 'react-icons/fa';
 
 const PageContainer = styled.div`
-  padding-top: 80px; /* Space for navbar */
+  padding-top: 80px;
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  
+  @media (max-width: 768px) {
+    padding-top: 60px;
+  }
+  
+  @media (max-width: 480px) {
+    padding-top: 50px;
+  }
 `;
 
 const HeroSection = styled.section`
@@ -15,6 +23,14 @@ const HeroSection = styled.section`
   position: relative;
   overflow: hidden;
   
+  @media (max-width: 768px) {
+    padding: 3rem 0 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 2rem 0 1.5rem;
+  }
+  
   h1 {
     font-size: 3rem;
     font-weight: 800;
@@ -22,6 +38,17 @@ const HeroSection = styled.section`
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
+    padding: 0 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
     
     &::after {
       content: '';
@@ -32,6 +59,12 @@ const HeroSection = styled.section`
       width: 80px;
       height: 3px;
       background: var(--coral);
+      
+      @media (max-width: 480px) {
+        width: 60px;
+        height: 2px;
+        bottom: -8px;
+      }
     }
   }
   
@@ -41,6 +74,20 @@ const HeroSection = styled.section`
     color: #4b5563;
     font-size: 1.1rem;
     line-height: 1.6;
+    padding: 0 1.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 0 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
   }
 `;
 
@@ -52,10 +99,22 @@ const SponsorsGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
     padding: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 0.75rem;
   }
 `;
 
@@ -72,6 +131,16 @@ const SponsorCard = styled(motion.div)`
   position: relative;
   cursor: pointer;
   
+  @media (max-width: 768px) {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
+  
   .logo-container {
     width: 100%;
     height: 150px;
@@ -80,6 +149,18 @@ const SponsorCard = styled(motion.div)`
     justify-content: center;
     margin-bottom: 1rem;
     padding: 1rem;
+    
+    @media (max-width: 768px) {
+      height: 120px;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    @media (max-width: 480px) {
+      height: 80px;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
     
     img {
       max-width: 100%;
@@ -95,6 +176,16 @@ const SponsorCard = styled(motion.div)`
     color: var(--deep-blue);
     margin: 0.5rem 0;
     text-align: center;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      margin: 0.4rem 0;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+      margin: 0.3rem 0;
+    }
   }
   
   .overlay {
@@ -108,11 +199,27 @@ const SponsorCard = styled(motion.div)`
     transition: opacity 0.3s ease;
     padding: 1.5rem;
     
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 0.75rem;
+    }
+    
     p {
       color: white;
       font-size: 1rem;
       text-align: center;
       margin: 0;
+      
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 0.8rem;
+      }
     }
   }
   
@@ -133,6 +240,14 @@ const SponsorCard = styled(motion.div)`
 const CategorySection = styled.section`
   padding: 3rem 0;
   
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.5rem 0;
+  }
+  
   h2 {
     text-align: center;
     font-size: 2rem;
@@ -141,6 +256,17 @@ const CategorySection = styled.section`
     margin-bottom: 3rem;
     position: relative;
     display: inline-block;
+    padding: 0 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
     
     &::after {
       content: '';
@@ -150,6 +276,12 @@ const CategorySection = styled.section`
       width: 60px;
       height: 3px;
       background: var(--coral);
+      
+      @media (max-width: 480px) {
+        width: 40px;
+        height: 2px;
+        bottom: -8px;
+      }
     }
   }
 `;
@@ -160,6 +292,18 @@ const FilterContainer = styled.div`
   margin-bottom: 3rem;
   flex-wrap: wrap;
   gap: 0.5rem;
+  padding: 0 1rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    gap: 0.4rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1.5rem;
+    gap: 0.3rem;
+    padding: 0 0.5rem;
+  }
 `;
 
 const FilterButton = styled.button`
@@ -172,6 +316,17 @@ const FilterButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap;
+  
+  @media (max-width: 768px) {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+  }
   
   &:hover {
     transform: translateY(-2px);
@@ -186,10 +341,29 @@ const ThankYouSection = styled.section`
   padding: 4rem 0;
   text-align: center;
   
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 2rem 0;
+  }
+  
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+    padding: 0 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
   }
   
   p {
@@ -197,12 +371,36 @@ const ThankYouSection = styled.section`
     margin: 0 auto 2rem;
     font-size: 1.1rem;
     opacity: 0.9;
+    padding: 0 1.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 0 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
   }
   
   .icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     color: var(--coral);
+    
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -218,9 +416,24 @@ const SponsorButton = styled(motion.a)`
   transition: all 0.3s ease;
   margin-top: 1rem;
   
+  @media (max-width: 768px) {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+  }
+  
   svg {
     margin-left: 0.5rem;
     transition: transform 0.3s ease;
+    
+    @media (max-width: 480px) {
+      margin-left: 0.4rem;
+    }
   }
   
   &:hover {
