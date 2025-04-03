@@ -1,181 +1,27 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import styled from 'styled-components';
+import { FaPhone, FaEnvelope, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa';
 
-// Modified to be more subtle since we have video background
-const DeepSeaBackground = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: rgba(255, 255, 255, 0.4); /* Lighter background to work with video */
-  overflow: hidden;
-  
-  /* Removed the animated SVG backgrounds since we have video */
-`;
-
-// Styled components for glassmorphic contact page
-const ContactContainer = styled.div`
+const PageContainer = styled.div`
+  padding-top: 80px; /* Space for navbar */
   min-height: 100vh;
-  padding: 8rem 0 5rem;
-  position: relative;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
 `;
 
-const GlassCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  overflow: hidden;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.2);
-  }
+const ContactSection = styled.section`
+  padding: 5rem 0;
 `;
 
-const ContactInfoCard = styled(GlassCard)`
-  display: flex;
-  align-items: center;
-  padding: 1.5rem;
-  gap: 1.5rem;
-  height: 100%;
-`;
-
-const IconContainer = styled.div`
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(0, 119, 182, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  
-  svg {
-    color: var(--deep-blue);
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-  }
-  
-  ${ContactInfoCard}:hover & {
-    background: var(--coral);
-    transform: scale(1.1) rotate(10deg);
-    
-    svg {
-      color: white;
-    }
-  }
-`;
-
-const ContactForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-`;
-
-const FormGroup = styled.div`
-  position: relative;
-`;
-
-const FormInput = styled.input`
-  width: 100%;
-  padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  
-  &:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(0, 119, 182, 0.5);
-    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.2);
-  }
-  
-  &::placeholder {
-    color: #6b7280;
-  }
-`;
-
-const FormTextarea = styled.textarea`
-  width: 100%;
-  padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  font-size: 1rem;
-  min-height: 150px;
-  transition: all 0.3s ease;
-  resize: vertical;
-  
-  &:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(0, 119, 182, 0.5);
-    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.2);
-  }
-  
-  &::placeholder {
-    color: #6b7280;
-  }
-`;
-
-const SubmitButton = styled(motion.button)`
-  background: linear-gradient(135deg, var(--deep-blue) 0%, var(--ocean-blue) 100%);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
-  
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.4);
-  }
-  
-  svg {
-    transition: transform 0.3s ease;
-  }
-  
-  &:hover svg {
-    transform: translateX(5px);
-  }
-`;
-
-const MapContainer = styled(GlassCard)`
-  height: 400px;
-  overflow: hidden;
-  
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-`;
-
-const PageHeader = styled(motion.div)`
+const ContactHeader = styled(motion.div)`
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   
   h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     color: var(--deep-blue);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
     
@@ -188,274 +34,300 @@ const PageHeader = styled(motion.div)`
       width: 80px;
       height: 3px;
       background: var(--coral);
-      border-radius: 3px;
     }
   }
   
   p {
-    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
     color: #4b5563;
-    max-width: 600px;
-    margin: 1.5rem auto 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 `;
 
-const SocialMediaContainer = styled.div`
+const ContactGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+`;
+
+const ContactInfo = styled(motion.div)`
+  background: white;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  
+  h2 {
+    font-size: 1.8rem;
+    color: var(--deep-blue);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--coral);
+    }
+  }
+`;
+
+const ContactItem = styled(motion.div)`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  
+  .icon-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--deep-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  
+  .content {
+    h3 {
+      font-size: 1.2rem;
+      color: var(--deep-blue);
+      margin-bottom: 0.25rem;
+    }
+    
+    p, a {
+      color: #4b5563;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--coral);
+    }
+  }
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
 `;
 
 const SocialIcon = styled(motion.a)`
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  background: var(--deep-blue);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--deep-blue);
-  font-size: 1.5rem;
+  color: white;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.3);
   
   &:hover {
     background: var(--coral);
-    color: white;
     transform: translateY(-5px);
   }
 `;
 
-const TeamMemberCard = styled(GlassCard)`
-  padding: 1.5rem;
-  text-align: center;
+const MapContainer = styled(motion.div)`
+  position: relative;
   
-  img {
-    width: 120px;
-    height: 120px;
+  .map-circle {
+    width: 100%;
+    padding-bottom: 100%; /* Makes it a perfect circle */
+    position: relative;
     border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 1rem;
-    border: 3px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   }
   
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--deep-blue);
-    margin-bottom: 0.5rem;
-  }
-  
-  p {
-    color: #4b5563;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+  .map-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 119, 182, 0.8);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    svg {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    &:hover {
+      background: var(--coral);
+      width: 90px;
+      height: 90px;
+    }
   }
 `;
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: <FaPhone />,
-      title: "Phone",
-      details: "+91 123 456 7890"
-    },
-    {
-      icon: <FaEnvelope />,
-      title: "Email",
-      details: "samskruti2025@eastpoint.ac.in"
-    },
-    {
-      icon: <FaMapMarkerAlt />,
-      title: "Address",
-      details: "East Point College of Engineering and Technology, Bangalore"
-    }
-  ];
-
-  const teamMembers = [
-    {
-      name: "Aditya Sharma",
-      role: "Event Coordinator",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-    },
-    {
-      name: "Priya Patel",
-      role: "Marketing Head",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-    },
-    {
-      name: "Rahul Verma",
-      role: "Technical Lead",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-    }
-  ];
-
+  const openGoogleMaps = () => {
+    window.open('https://www.google.com/maps?q=13.0503,77.7147', '_blank');
+  };
+  
   return (
-    <ContactContainer>
-      <DeepSeaBackground />
-      
-      <div className="container mx-auto px-4">
-        <PageHeader
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1>Connect With Us</h1>
-          <p>
-            Reach out to our team for any queries about Samskruti 2023. We're here to help make your experience memorable!
-          </p>
-          <SocialMediaContainer>
-            <SocialIcon 
-              href="#" 
-              target="_blank"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaInstagram />
-            </SocialIcon>
-            <SocialIcon 
-              href="#" 
-              target="_blank"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaFacebook />
-            </SocialIcon>
-            <SocialIcon 
-              href="#" 
-              target="_blank"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaTwitter />
-            </SocialIcon>
-          </SocialMediaContainer>
-        </PageHeader>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {contactInfo.map((info, index) => (
-            <ContactInfoCard
-              key={info.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-            >
-              <IconContainer>
-                {info.icon}
-              </IconContainer>
-              <div>
-                <h3 className="text-xl font-bold text-deep-blue mb-1">{info.title}</h3>
-                <p className="text-gray-700">{info.details}</p>
-              </div>
-            </ContactInfoCard>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
-          <div className="lg:col-span-3">
-            <MapContainer
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <iframe
-                title="Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3652333086547!2d77.6982473!3d13.0196873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1d7a5b93505f%3A0x4c4acb4ac36c1be6!2sEast%20Point%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1659632245781!5m2!1sen!2sin"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </MapContainer>
-          </div>
+    <PageContainer>
+      <ContactSection>
+        <div className="container mx-auto">
+          <ContactHeader
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1>Contact Us</h1>
+            <p>
+              Have questions about Samskruthi 2025? We're here to help!
+              Reach out to us through any of the channels below.
+            </p>
+          </ContactHeader>
           
-          <div className="lg:col-span-2">
-            <GlassCard
-              initial={{ opacity: 0, x: 30 }}
+          <ContactGrid>
+            <ContactInfo
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="p-8 h-full"
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-2xl font-bold text-deep-blue mb-6">Send us a message</h2>
-              <ContactForm>
-                <FormGroup>
-                  <FormInput 
-                    type="text" 
-                    placeholder="Your Name" 
-                    required 
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <FormInput 
-                    type="email" 
-                    placeholder="Your Email" 
-                    required 
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <FormTextarea 
-                    placeholder="Your Message" 
-                    required
-                  />
-                </FormGroup>
-                <SubmitButton
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Send Message <FaPaperPlane />
-                </SubmitButton>
-              </ContactForm>
-            </GlassCard>
-          </div>
-        </div>
-
-        <motion.h2 
-          className="text-3xl font-bold text-deep-blue text-center mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-        >
-          Meet Our Team
-        </motion.h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
-            <TeamMemberCard
-              key={member.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-            >
-              <img src={member.image} alt={member.name} />
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-              <div className="flex justify-center gap-3 mt-3">
+              <h2>Get in Touch</h2>
+              
+              <ContactItem
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <div className="icon-container">
+                  <FaPhone />
+                </div>
+                <div className="content">
+                  <h3>Phone</h3>
+                  <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                  <p><a href="tel:+919876543211">+91 98765 43211</a></p>
+                </div>
+              </ContactItem>
+              
+              <ContactItem
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <div className="icon-container">
+                  <FaEnvelope />
+                </div>
+                <div className="content">
+                  <h3>Email</h3>
+                  <p><a href="mailto:samskruthi@college.edu">samskruthi@college.edu</a></p>
+                </div>
+              </ContactItem>
+              
+              <ContactItem
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <div className="icon-container">
+                  <FaMapMarkerAlt />
+                </div>
+                <div className="content">
+                  <h3>Address</h3>
+                  <p>RNSIT Campus, Channasandra,</p>
+                  <p>Bengaluru, Karnataka 560098</p>
+                </div>
+              </ContactItem>
+              
+              <SocialLinks>
                 <SocialIcon 
-                  as="button"
-                  href="#" 
+                  href="https://www.instagram.com/samskruthi_official/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{ width: '35px', height: '35px', fontSize: '1rem' }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FaInstagram />
+                </SocialIcon>
+                <SocialIcon 
+                  href="mailto:samskruthi@college.edu"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <FaEnvelope />
                 </SocialIcon>
                 <SocialIcon 
-                  as="button"
-                  href="#" 
+                  href="tel:+919876543210"
                   whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{ width: '35px', height: '35px', fontSize: '1rem' }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <FaInstagram />
+                  <FaPhone />
                 </SocialIcon>
+              </SocialLinks>
+            </ContactInfo>
+            
+            <MapContainer
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="map-circle">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4691411020407!2d77.71221!3d13.0503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAzJzAxLjEiTiA3N8KwNDInNTMuMyJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                  allowFullScreen="" 
+                  loading="lazy"
+                  title="College Location"
+                ></iframe>
               </div>
-            </TeamMemberCard>
-          ))}
+              <motion.div 
+                className="map-overlay"
+                onClick={openGoogleMaps}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaMapMarkerAlt />
+                <span>Open Map</span>
+              </motion.div>
+            </MapContainer>
+          </ContactGrid>
         </div>
-      </div>
-    </ContactContainer>
+      </ContactSection>
+    </PageContainer>
   );
 };
 

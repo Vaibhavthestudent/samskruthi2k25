@@ -44,20 +44,7 @@ const Footer = () => {
             <p className="text-light-blue/80 mb-4">
               The annual cultural fest of East Point Group of Institutions, celebrating talent, creativity, and cultural diversity.
             </p>
-            <div className="flex space-x-8 justify-center"> {/* Changed space-x-4 to space-x-8 and added justify-center */}
-              <a href="#" className="text-white hover:text-coral transition-colors">
-                <FaFacebook size={20} />
-              </a>
-              <a href="#" className="text-white hover:text-coral transition-colors">
-                <FaTwitter size={20} />
-              </a>
-              <a href="#" className="text-white hover:text-coral transition-colors">
-                <FaInstagram size={20} />
-              </a>
-              <a href="#" className="text-white hover:text-coral transition-colors">
-                <FaYoutube size={20} />
-              </a>
-            </div>
+            
           </div>
         </div>
         
