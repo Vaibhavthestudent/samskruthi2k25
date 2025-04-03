@@ -8,11 +8,24 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
+  gap: 1rem;
   
-  img {
-    height: 45px;
+  .epgi-logo {
+    height: 65px; /* Increased from 45px */
     width: auto;
     object-fit: contain;
+  }
+  
+  .samskruthi-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .divider {
+    height: 30px;
+    width: 1px;
+    background-color: rgba(3, 4, 94, 0.3);
   }
 `;
 
@@ -177,9 +190,11 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Events', path: '/events' },
     { name: 'Gallery', path: '/gallery' },
+    { name: 'Previous Sponsors', path: '/sponsors' },
     { name: 'Contact', path: '/contact' },
   ];
 
+  // In the return statement, update the img tags with specific classes
   return (
     <NavbarContainer scrolled={scrolled}>
       <NavContent>
@@ -190,7 +205,9 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <LogoContainer>
-              <img src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" />
+              <img className="epgi-logo" src="/src/Resources/logos/EPGI_LOGO.png" alt="EPGI Logo" />
+              <div className="divider"></div>
+              <img className="samskruthi-logo" src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" />
             </LogoContainer>
           </motion.div>
         </Link>

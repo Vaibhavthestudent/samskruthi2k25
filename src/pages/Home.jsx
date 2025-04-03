@@ -35,14 +35,21 @@ const HeroSection = styled.section`
     object-fit: cover;
     
   }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
   
   .hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    padding: 0 1rem;
-    margin-top: 2rem; /* Add some margin at the top */
+    padding: 0 rem;
+    margin-top: 0; /* Reduced from 2rem to 0 to move content up */
   }
   
   h1 {
@@ -328,7 +335,7 @@ const FeaturedEventsSection = styled.section`
     gap: 2rem;
     
     @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr); /* Changed from 3 to 2 columns */
     }
   }
   
@@ -522,19 +529,24 @@ const Home = () => {
       image: "/src/Resources/Gallery/benny/1.jpg"
     },
     {
-      title: "Fashion Show",
-      category: "Fashion Show",
-      image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+      title: "DJ Night",
+      category: "DJ",
+      image: "/src/Resources/Gallery/DJ.jpg"
     },
     {
-      title: "Dance Performances",
-      category: "Art",
-      image: "https://images.unsplash.com/photo-1579762593175-20226054cad0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1236&q=80"
+      title: "Fashion Show",
+      category: "Fashion",
+      image: "/src/Resources/Gallery/Fashion_show.jpg"
+    },
+    {
+      title: "Battle of Bands",
+      category: "Competition",
+      image: "/src/Resources/Gallery/Bands.jpg"
     }
   ];
 
-  return (
-    <div>
+ return (
+    <div style={{ margin: 0, padding: 0, overflow: 'hidden', width: '100%' }}>
       {/* Hero Section */}
       <HeroSection ref={targetRef}>
         <motion.div style={{ opacity, scale, y }}>
@@ -554,13 +566,48 @@ const Home = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1.8, delay: 0.2 }}
               className="hero-content"
+              style={{ marginTop: "-3rem" }} /* Added negative margin to move content up */
             >
+             
+              <motion.img 
+                src="/src/Resources/logos/EPGI_LOGO.png" 
+                alt="EPGI Logo" 
+                style={{ 
+                  maxWidth: '380px', /* Slightly reduced from 400px */
+                  margin: '0 auto 0.0rem',
+                  filter: 'brightness(0) invert(1)',
+                  marginBottom: "-2rem"
+                }}
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+              />
+              
+              {/* Presents text */}
+              <motion.p
+                style={{ 
+                  color: 'white', 
+                  fontSize: '1.5rem', 
+                  fontWeight: '500',
+                  margin: '0 auto 0.0rem', // Reduced top and bottom margins from 0.5rem to 0
+                  fontStyle: 'italic',
+                  textAlign: 'center',
+                  marginBottom: "-1rem"
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                Presents
+              </motion.p>
+              
+              {/* Samskruthi Logo */}
               <motion.img 
                 src="/src/Resources/logos/Samskruthilogo.png" 
                 alt="Samskruthi 2025" 
-                style={{ maxWidth: '400px', margin: '0 auto 1.5rem' }}
+                style={{ maxWidth: '400px', margin: '0.0rem ' }} // Reduced top margin from default to 0.5rem
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
@@ -629,7 +676,7 @@ const Home = () => {
                 <p>
                   From coral reefs to mysterious deep-sea creatures, our events draw inspiration from the vast underwater world, creating a unique and immersive experience for all participants and attendees.
                 </p>
-                <Link to="/about" className="btn-primary">
+                <Link to="/events" className="btn-primary">
                   Learn More
                 </Link>
               </motion.div>
@@ -643,7 +690,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <img 
-                  src="/src/Resources/Gallery/dance/5.jpg" 
+                  src="/src/Resources/Gallery/BANNER_REVEAL.jpg" 
                   alt="Cultural Performance" 
                 />
                 <div className="circle-1"></div>

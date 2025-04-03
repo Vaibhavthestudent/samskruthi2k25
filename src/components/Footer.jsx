@@ -7,6 +7,8 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  justify-content: center; /* Center the logos horizontally */
+  width: 100%; /* Take full width */
   
   img {
     height: 60px;
@@ -15,7 +17,7 @@ const LogoContainer = styled.div`
   }
   
   .college-logo {
-    height: 50px;
+    height: 100px; /* Increased from 50px to 70px */
   }
 `;
 
@@ -32,16 +34,17 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
-          <div>
-            {/* <h3 className="text-xl font-bold mb-4">Samskruthi 2025</h3> */}
+          <div className="lg:col-span-4 text-center"> {/* Added text-center and span all columns */}
+            
             <LogoContainer>
               <img src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" />
-              <img src="/src/Resources/logos/EPGI_LOGO.png" alt="EPGI Logo" className="college-logo" style={{ maxWidth: '900px' }}/>
+              <img src="/src/Resources/logos/EPGI_LOGO.png" alt="EPGI Logo" className="college-logo" style={{ maxWidth: '900px',
+                  filter: 'brightness(0) invert(1)', }}/>
             </LogoContainer>
             <p className="text-light-blue/80 mb-4">
               The annual cultural fest of East Point Group of Institutions, celebrating talent, creativity, and cultural diversity.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-8 justify-center"> {/* Changed space-x-4 to space-x-8 and added justify-center */}
               <a href="#" className="text-white hover:text-coral transition-colors">
                 <FaFacebook size={20} />
               </a>

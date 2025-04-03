@@ -1,207 +1,399 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import styled from 'styled-components';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-// Page container with proper spacing for navbar
 const PageContainer = styled.div`
-  min-height: 100vh;
-  padding-top: 120px; /* Fixed value to ensure content is below navbar */
-  padding-bottom: 5rem;
-  background: linear-gradient(135deg, #f0f8ff 0%, #e6f0ff 100%);
+  padding-top: 80px; /* Space for navbar */
 `;
 
-// Styled components for glassmorphic event cards
-const EventCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  overflow: hidden;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.2);
-  }
-`;
-
-const ImageContainer = styled.div`
+const HeroSection = styled.section`
+  background: linear-gradient(135deg, var(--deep-blue) 0%, #1a365d 100%);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
   position: relative;
-  height: 180px;
   overflow: hidden;
   
-  img {
+//   .bubble {
+//     position: absolute;
+//     border-radius: 50%;
+//     background: rgba(255, 255, 255, 0.1);
+//     /* Removed the animation property */
+//   }
+  
+  /* Removed the @keyframes float animation */
+`;
+
+const EventSection = styled.section`
+  padding: 5rem 0;
+  background: ${props => props.bgColor || 'white'};
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s ease;
+    background-image: ${props => props.pattern ? 'url("/src/Resources/patterns/wave-pattern.svg")' : 'none'};
+    background-repeat: repeat;
+    background-size: 500px;
+    opacity: 0.03;
+    pointer-events: none;
   }
   
-  ${EventCard}:hover img {
-    transform: scale(1.05);
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 5rem;
+      height: 3px;
+      background: var(--coral);
+    }
   }
 `;
 
-const CategoryBadge = styled.div`
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255, 107, 107, 0.8);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-`;
-
-const EventContent = styled.div`
-  padding: 1.5rem;
-`;
-
-const EventTitle = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--deep-blue);
-  margin-bottom: 0.75rem;
-`;
-
-const EventDescription = styled.p`
-  color: #4b5563;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
-`;
-
-const EventDetail = styled.div`
-  display: flex;
-  align-items: center;
-  color: #4b5563;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+const CarouselContainer = styled.div`
+  position: relative;
+  margin: 3rem 0;
   
-  svg {
-    color: var(--coral);
-    margin-right: 0.5rem;
-    flex-shrink: 0;
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+  }
+  
+  .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+    
+    button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      
+      &:hover {
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
+  }
+  
+  .indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    
+    .dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: #ccc;
+      margin: 0 0.25rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      
+      &.active {
+        background: var(--coral);
+      }
+    }
   }
 `;
 
-const RegisterButton = styled.button`
-  width: 100%;
-  background: rgba(0, 119, 182, 0.7);
-  color: white;
-  padding: 0.75rem;
-  border-radius: 8px;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-  margin-top: 1.25rem;
-  cursor: pointer;
-  backdrop-filter: blur(5px);
+const EventCardsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+`;
+
+const EventCard = styled.div`
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
   
   &:hover {
-    background: rgba(3, 4, 94, 0.8);
-    transform: translateY(-2px);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--coral);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+  
+  .card-content {
+    padding: 1.75rem;
+    text-align: center;
+    
+    h3 {
+      font-size: 1.35rem;
+      color: var(--deep-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    
+    p {
+      color: #4b5563;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+  }
+`;
+
+const RegisterButton = styled(Link)`
+  display: inline-block;
+  background: var(--coral);
+  color: white;
+  font-weight: 700;
+  padding: 0.85rem 2.5rem;
+  border-radius: 9999px;
+  text-align: center;
+  margin: 2rem auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    background: #ff5a5a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
   }
 `;
 
 const Events = () => {
-  const events = [
-    {
-      title: "Ocean Symphony",
-      category: "Music",
-      date: "December 15, 2023",
-      time: "10:00 AM",
-      venue: "Main Auditorium",
-      description: "A musical extravaganza featuring classical and contemporary performances inspired by the ocean's rhythms.",
-      image: "./Resources/Gallery/dance/5.jpg"
-    },
-    {
-      title: "Deep Blue Dance",
-      category: "Dance",
-      date: "December 15, 2023",
-      time: "2:00 PM",
-      venue: "Open Air Theatre",
-      description: "A mesmerizing dance showcase bringing underwater movements and stories to life.",
-      image: "./Resources/Gallery/dance/5.jpg"
-    },
-    {
-      title: "Coral Canvas",
-      category: "Art",
-      date: "December 16, 2023",
-      time: "11:00 AM",
-      venue: "Art Gallery",
-      description: "An art exhibition featuring stunning underwater-themed paintings, sculptures, and installations.",
-      image: "./Resources/Gallery/dance/5.jpg"
-    }
+  // State for carousel
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // On-stage event images
+  const onstageImages = [
+    "/src/Resources/2k24/5.jpg",
+    "/src/Resources/2k24/8.jpg",
+    "/src/Resources/2k24/12.jpg",
+    "/src/Resources/2k24/11.jpg",
+    "/src/Resources/2k24/19.jpg",
+    "/src/Resources/2k24/21.jpg",
+    "/src/Resources/2k24/26.jpg",
+    "/src/Resources/2k24/27.jpg",
   ];
-
+  
+  // On-stage events data
+  const onstageEvents = [
+    { name: "Solo Singing", description: "Showcase your vocal talent" },
+    { name: "Group Dance", description: "Choreographed performances" },
+    { name: "Fashion Show", description: "Strut the runway with style" },
+    { name: "Battle of Bands", description: "Rock the stage with your band" },
+    { name: "Solo Dance", description: "Express yourself through movement" },
+    { name: "DJ Night", description: "Dance to the beats" },
+    { name: "Live Concert", description: "Experience live music" },
+    { name: "Theatrical Play", description: "Dramatic performances" }
+  ];
+  
+  // Off-stage events data
+  const offstageEvents = [
+    { name: "Painting", description: "Express through colors" },
+    { name: "Photography", description: "Capture the moment" },
+    { name: "Creative Writing", description: "Pen your thoughts" },
+    { name: "Rangoli", description: "Traditional art form" },
+    { name: "Debate", description: "Voice your opinions" },
+    { name: "Quiz", description: "Test your knowledge" },
+    { name: "Treasure Hunt", description: "Find the hidden clues" },
+    { name: "Gaming", description: "Compete in digital arenas" }
+  ];
+  
+  // Carousel navigation functions
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === onstageImages.length - 1 ? 0 : prev + 1));
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? onstageImages.length - 1 : prev - 1));
+  };
+  
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+  
   return (
     <PageContainer>
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-deep-blue mb-4">
-            Our Events
-          </h1>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Dive into our exciting lineup of events at Samskruti 2023
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => (
-            <EventCard
-              key={event.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <ImageContainer>
-                <img
-                  src={event.image}
-                  alt={event.title}
-                />
-                <CategoryBadge>
-                  {event.category}
-                </CategoryBadge>
-              </ImageContainer>
-
-              <EventContent>
-                <EventTitle>{event.title}</EventTitle>
-                <EventDescription>{event.description}</EventDescription>
-
-                <div>
-                  <EventDetail>
-                    <FaCalendarAlt size={14} />
-                    <span>{event.date}</span>
-                  </EventDetail>
-                  <EventDetail>
-                    <FaClock size={14} />
-                    <span>{event.time}</span>
-                  </EventDetail>
-                  <EventDetail>
-                    <FaMapMarkerAlt size={14} />
-                    <span>{event.venue}</span>
-                  </EventDetail>
-                </div>
-
-                <RegisterButton>
-                  Register Now
-                </RegisterButton>
-              </EventContent>
-            </EventCard>
-          ))}
+      {/* Hero Section */}
+      <HeroSection>
+        
+        
+        <div className="container mx-auto px-4">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Samskruthi 2025 Events
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-light-blue max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Dive into a sea of talent and creativity with our diverse range of events
+          </motion.p>
         </div>
-      </div>
+      </HeroSection>
+      
+      {/* On-stage Events Section */}
+      <EventSection pattern={true}>
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="section-title text-3xl font-bold text-deep-blue">On-Stage Events</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Showcase your talent on the big stage with our exciting performance-based events
+            </p>
+          </div>
+          
+          {/* Carousel for on-stage events */}
+          <CarouselContainer>
+            <div className="carousel">
+              <motion.img 
+                src={onstageImages[currentSlide]} 
+                alt={`On-stage event ${currentSlide + 1}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
+            
+            <div className="controls">
+              <button onClick={prevSlide}>
+                <FaArrowLeft />
+              </button>
+              <button onClick={nextSlide}>
+                <FaArrowRight />
+              </button>
+            </div>
+            
+            <div className="indicators">
+              {onstageImages.map((_, index) => (
+                <div 
+                  key={index} 
+                  className={`dot ${currentSlide === index ? 'active' : ''}`}
+                  onClick={() => goToSlide(index)}
+                ></div>
+              ))}
+            </div>
+          </CarouselContainer>
+          
+          {/* On-stage event cards */}
+          <EventCardsGrid>
+            {onstageEvents.map((event, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <EventCard>
+                  <div className="card-content">
+                    <h3>{event.name}</h3>
+                    <p>{event.description}</p>
+                  </div>
+                </EventCard>
+              </motion.div>
+            ))}
+          </EventCardsGrid>
+          
+          {/* Register button for on-stage events */}
+          <div className="text-center">
+            <RegisterButton to="#">
+              Register for On-Stage Events
+            </RegisterButton>
+          </div>
+        </div>
+      </EventSection>
+      
+      {/* Off-stage Events Section */}
+      <EventSection bgColor="rgba(144, 224, 239, 0.1)" pattern={true}>
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="section-title text-3xl font-bold text-deep-blue">Off-Stage Events</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Express your creativity and skills through our diverse range of off-stage competitions
+            </p>
+          </div>
+          
+          {/* Off-stage event cards */}
+          <EventCardsGrid>
+            {offstageEvents.map((event, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <EventCard>
+                  <div className="card-content">
+                    <h3>{event.name}</h3>
+                    <p>{event.description}</p>
+                  </div>
+                </EventCard>
+              </motion.div>
+            ))}
+          </EventCardsGrid>
+          
+          {/* Register button for off-stage events */}
+          <div className="text-center">
+            <RegisterButton to="#">
+              Register for Off-Stage Events
+            </RegisterButton>
+          </div>
+        </div>
+      </EventSection>
     </PageContainer>
   );
 };

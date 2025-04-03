@@ -12,6 +12,7 @@ import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import VideoBackground from './components/VideoBackground';
+import Sponsors from './pages/Sponsors';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -156,7 +157,7 @@ function App() {
     <Router>
       <GlobalStyle />
       <div className="app-container">
-        <VideoBackground />
+        <VideoBackground /> {/* If you have this component */}
         <Navbar />
         <main>
           <AnimatePresence mode="wait">
@@ -164,6 +165,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/events" element={<Events />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="/sponsors" element={<Sponsors />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<div className="container" style={{padding: '8rem 0', textAlign: 'center'}}><h1>Page Not Found</h1></div>} />
             </Routes>
