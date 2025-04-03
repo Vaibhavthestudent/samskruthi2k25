@@ -33,7 +33,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Samskruthi 2025</h3>
+            {/* <h3 className="text-xl font-bold mb-4">Samskruthi 2025</h3> */}
             <LogoContainer>
               <img src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" />
               <img src="/src/Resources/logos/EPGI_LOGO.png" alt="EPGI Logo" className="college-logo" style={{ maxWidth: '900px' }}/>
@@ -56,14 +56,11 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
-          {/* Rest of the footer remains the same */}
-          {/* ... */}
         </div>
         
         {/* Copyright section */}
         <div className="border-t border-white/10 mt-8 pt-6 text-center text-sm text-white/60">
-          <p>© {currentYear} Samskruthi - East Point Group of Institutions. All rights reserved.</p>
+          <p>©  Samskruthi {currentYear}- East Point Group of Institutions. All rights reserved.</p>
         </div>
       </div>
     </footer>

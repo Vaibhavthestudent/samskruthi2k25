@@ -118,7 +118,7 @@ const Events = () => {
       time: "10:00 AM",
       venue: "Main Auditorium",
       description: "A musical extravaganza featuring classical and contemporary performances inspired by the ocean's rhythms.",
-      image: "/src/Resources/Gallery/dance/5.jpg"
+      image: "./Resources/Gallery/dance/5.jpg"
     },
     {
       title: "Deep Blue Dance",
@@ -127,7 +127,7 @@ const Events = () => {
       time: "2:00 PM",
       venue: "Open Air Theatre",
       description: "A mesmerizing dance showcase bringing underwater movements and stories to life.",
-      image: "/src/Resources/Gallery/dance/5.jpg"
+      image: "./Resources/Gallery/dance/5.jpg"
     },
     {
       title: "Coral Canvas",
@@ -136,7 +136,7 @@ const Events = () => {
       time: "11:00 AM",
       venue: "Art Gallery",
       description: "An art exhibition featuring stunning underwater-themed paintings, sculptures, and installations.",
-      image: "/src/Resources/Gallery/dance/5.jpg"
+      image: "./Resources/Gallery/dance/5.jpg"
     }
   ];
 

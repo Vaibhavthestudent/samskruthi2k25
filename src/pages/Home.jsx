@@ -12,6 +12,7 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding-top: 80px; /* Add padding to account for navbar height */
   
   &::before {
     content: '';
@@ -22,6 +23,7 @@ const HeroSection = styled.section`
     bottom: 0;
     background: linear-gradient(to bottom, rgba(3, 4, 94, 0.9), rgba(0, 119, 182, 0.7));
     z-index: 1;
+    margin-top: 3.5rem; /* Add margin to account for navbar height */
   }
   
   .hero-bg {
@@ -31,6 +33,7 @@ const HeroSection = styled.section`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
   }
   
   .hero-content {
@@ -39,6 +42,7 @@ const HeroSection = styled.section`
     text-align: center;
     max-width: 800px;
     padding: 0 1rem;
+    margin-top: 2rem; /* Add some margin at the top */
   }
   
   h1 {
@@ -564,9 +568,7 @@ const Home = () => {
               <p className="theme-text">
               Soak in the Hues of Joy
               </p>
-              <h2 className="theme-title">
-                World Under the Sea
-              </h2>
+              
               <p className="description">
                 Join us for three days of music, dance, art, and more at East Point Group of Institutions' annual cultural fest.
               </p>
