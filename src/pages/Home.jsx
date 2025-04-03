@@ -1,0 +1,755 @@
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import styled from 'styled-components';
+import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt, FaUsers } from 'react-icons/fa';
+import CountdownTimer from '../components/CountdownTimer';
+
+const HeroSection = styled.section`
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(3, 4, 94, 0.9), rgba(0, 119, 182, 0.7));
+    z-index: 1;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+  }
+  
+  .theme-text {
+    font-size: 1.25rem;
+    color: var(--light-blue);
+    margin-bottom: 1.5rem;
+    
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .theme-title {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: white;
+    margin-bottom: 2rem;
+    
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media (min-width: 768px) {
+      font-size: 1.125rem;
+    }
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    
+    @media (min-width: 640px) {
+      flex-direction: row;
+    }
+  }
+  
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2rem;
+    height: 3rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    
+    .dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      background: white;
+      border-radius: 50%;
+      margin-top: 0.5rem;
+    }
+  }
+`;
+
+const AboutSection = styled.section`
+  background: white;
+  padding: 5rem 0;
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 5rem;
+      height: 3px;
+      background: var(--coral);
+    }
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .about-content {
+    h3 {
+      font-size: 1.5rem;
+      color: var(--deep-blue);
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .about-image {
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .circle-1, .circle-2 {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    .circle-1 {
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 8rem;
+      height: 8rem;
+      background: rgba(255, 107, 107, 0.2);
+    }
+    
+    .circle-2 {
+      top: -1.5rem;
+      left: -1.5rem;
+      width: 6rem;
+      height: 6rem;
+      background: rgba(144, 224, 239, 0.3);
+    }
+  }
+`;
+
+const HighlightsSection = styled.section`
+  background: rgba(144, 224, 239, 0.1);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  
+  .wave-top, .wave-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background-size: 100% 100%;
+    opacity: 0.1;
+  }
+  
+  .wave-top {
+    top: 0;
+  }
+  
+  .wave-bottom {
+    bottom: 0;
+    transform: rotate(180deg);
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 5rem;
+      height: 3px;
+      background: var(--coral);
+    }
+  }
+  
+  .section-description {
+    text-align: center;
+    color: #4b5563;
+    max-width: 36rem;
+    margin: 0 auto 4rem;
+  }
+  
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .highlight-card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .icon-container {
+      margin-bottom: 1rem;
+      width: fit-content;
+      padding: 0.75rem;
+      border-radius: 50%;
+      background: rgba(144, 224, 239, 0.2);
+      margin: 0 auto 1rem;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      color: var(--deep-blue);
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    
+    p {
+      color: #4b5563;
+      text-align: center;
+    }
+  }
+`;
+
+const FeaturedEventsSection = styled.section`
+  background: white;
+  padding: 5rem 0;
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 5rem;
+      height: 3px;
+      background: var(--coral);
+    }
+  }
+  
+  .section-description {
+    text-align: center;
+    color: #4b5563;
+    max-width: 36rem;
+    margin: 0 auto 4rem;
+  }
+  
+  .events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .event-card {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 18rem;
+    
+    &:hover img {
+      transform: scale(1.1);
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(3, 4, 94, 0.8), transparent);
+      opacity: 0.8;
+    }
+    
+    .category {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--coral);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      color: white;
+      
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      a {
+        color: var(--light-blue);
+        font-size: 0.875rem;
+        display: inline-flex;
+        align-items: center;
+        
+        &:hover {
+          color: var(--coral);
+        }
+        
+        svg {
+          margin-left: 0.25rem;
+        }
+      }
+    }
+  }
+  
+  .view-all {
+    text-align: center;
+    margin-top: 3rem;
+  }
+`;
+
+const CTASection = styled.section`
+  background: var(--deep-blue);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  
+  .bubble-1, .bubble-2 {
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .bubble-1 {
+    top: 2.5rem;
+    left: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .bubble-2 {
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 8rem;
+    height: 8rem;
+    background: rgba(255, 255, 255, 0.15);
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  
+  .cta-content {
+    max-width: 48rem;
+    margin: 0 auto;
+    text-align: center;
+    
+    h2 {
+      font-size: 1.875rem;
+      color: white;
+      margin-bottom: 1.5rem;
+      
+      @media (min-width: 768px) {
+        font-size: 2.25rem;
+      }
+    }
+    
+    p {
+      color: rgba(144, 224, 239, 0.9);
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .register-button {
+      background: var(--coral);
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      font-size: 1.125rem;
+      
+      &:hover {
+        background: rgba(255, 107, 107, 0.8);
+      }
+      
+      svg {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+`;
+
+const Home = () => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+
+  // Sample event date - replace with actual date
+  const eventDate = "2025-04-24T09:00:00";
+
+  // Highlights data
+  const highlights = [
+    {
+      icon: <FaCalendarAlt size={24} color="var(--coral)" />,
+      title: "3-Day Extravaganza",
+      description: "Experience three days of non-stop cultural celebrations and competitions."
+    },
+    {
+      icon: <FaUsers size={24} color="var(--coral)" />,
+      title: "20+ Events",
+      description: "Participate in over 20 different events across various categories."
+    },
+    {
+      icon: <FaMapMarkerAlt size={24} color="var(--coral)" />,
+      title: "Multiple Venues",
+      description: "Events spread across the beautiful East Point campus."
+    }
+  ];
+
+  // Featured events
+  const featuredEvents = [
+    {
+      title: "Live Concert",
+      category: "Music",
+      image: "/src/Resources/Gallery/benny/1.jpg"
+    },
+    {
+      title: "Fashion Show",
+      category: "Fashion Show",
+      image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+    },
+    {
+      title: "Dance Performances",
+      category: "Art",
+      image: "https://images.unsplash.com/photo-1579762593175-20226054cad0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1236&q=80"
+    }
+  ];
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <HeroSection ref={targetRef}>
+        <motion.div style={{ opacity, scale, y }}>
+          <img 
+            src="https://images.unsplash.com/photo-1558019142-6b6290019b3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80" 
+            // alt="Ocean Background" 
+            className="hero-bg"
+          />
+          
+          {/* Decorative bubbles */}
+          <div className="bubble" style={{top: '25%', left: '25%', width: '4rem', height: '4rem', opacity: 0.6}}></div>
+          <div className="bubble" style={{top: '33%', right: '33%', width: '6rem', height: '6rem', opacity: 0.4}}></div>
+          <div className="bubble" style={{bottom: '25%', left: '33%', width: '5rem', height: '5rem', opacity: 0.5}}></div>
+          <div className="bubble" style={{bottom: '33%', right: '25%', width: '3rem', height: '3rem', opacity: 0.7}}></div>
+
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="hero-content"
+            >
+              <motion.img 
+                src="/src/Resources/logos/Samskruthilogo.png" 
+                alt="Samskruthi 2025" 
+                style={{ maxWidth: '400px', margin: '0 auto 1.5rem' }}
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+              />
+              <p className="theme-text">
+              Soak in the Hues of Joy
+              </p>
+              <h2 className="theme-title">
+                World Under the Sea
+              </h2>
+              <p className="description">
+                Join us for three days of music, dance, art, and more at East Point Group of Institutions' annual cultural fest.
+              </p>
+              
+              <div style={{marginBottom: '2rem'}}>
+                <CountdownTimer targetDate={eventDate} />
+              </div>
+              
+              <div className="buttons">
+                <a 
+                  href="/src/assets/Samskruthi2k25.pdf" 
+                  download
+                  className="btn-primary"
+                >
+                  Download Brochure
+                </a>
+                <a href="#register" className="btn-primary">
+                  Register Now
+                </a>
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Scroll indicator */}
+          <motion.div 
+            className="scroll-indicator"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          >
+            <motion.div 
+              className="dot"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            />
+          </motion.div>
+        </motion.div>
+      </HeroSection>
+
+      {/* About Section */}
+      <AboutSection>
+        <div className="container">
+          <div style={{textAlign: 'center', marginBottom: '3rem'}}>
+            <h2 className="section-title">About Samskruthi 2025</h2>
+          </div>
+          
+          <div className="about-grid">
+            <div className="about-content">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3>Celebrating Culture Through Oceanic Wonders</h3>
+                <p>
+                  Samskruthi 2025 brings the magical world under the sea to life through a vibrant celebration of arts, music, dance, and creativity. This year's theme invites participants to explore the depths of cultural expression inspired by oceanic wonders.
+                </p>
+                <p>
+                  From coral reefs to mysterious deep-sea creatures, our events draw inspiration from the vast underwater world, creating a unique and immersive experience for all participants and attendees.
+                </p>
+                <Link to="/about" className="btn-primary">
+                  Learn More
+                </Link>
+              </motion.div>
+            </div>
+            
+            <div className="about-image">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <img 
+                  src="/src/Resources/Gallery/dance/5.jpg" 
+                  alt="Cultural Performance" 
+                />
+                <div className="circle-1"></div>
+                <div className="circle-2"></div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </AboutSection>
+
+      {/* Highlights Section */}
+      <HighlightsSection>
+        <div className="container">
+          <div style={{textAlign: 'center', marginBottom: '2rem'}}>
+            <h2 className="section-title">Event Highlights</h2>
+            <p className="section-description">
+              What makes Samskruthi 2025 special? Here's a glimpse of what to expect.
+            </p>
+          </div>
+          
+          <div className="highlights-grid">
+            {highlights.map((highlight, index) => (
+              <motion.div
+                key={index}
+                className="highlight-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="icon-container">
+                  {highlight.icon}
+                </div>
+                <h3>{highlight.title}</h3>
+                <p>{highlight.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </HighlightsSection>
+
+      {/* Featured Events Section */}
+      <FeaturedEventsSection>
+        <div className="container">
+          <div style={{textAlign: 'center', marginBottom: '2rem'}}>
+            <h2 className="section-title">Featured Events</h2>
+            <p className="section-description">
+              Explore some of our most anticipated events at Samskruthi 2025.
+            </p>
+          </div>
+          
+          <div className="events-grid">
+            {featuredEvents.map((event, index) => (
+              <motion.div
+                key={index}
+                className="event-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <img src={event.image} alt={event.title} />
+                <div className="overlay"></div>
+                <div className="category">{event.category}</div>
+                <div className="content">
+                  <h3>{event.title}</h3>
+                  <Link to={`/events#${event.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    Learn more <FaArrowRight size={12} />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="view-all">
+            <Link to="/events" className="btn-primary">
+              View All Events
+            </Link>
+          </div>
+        </div>
+      </FeaturedEventsSection>
+
+      {/* CTA Section */}
+      <CTASection id="register">
+        <div className="bubble-1"></div>
+        <div className="bubble-2"></div>
+        
+        <div className="container">
+          <motion.div
+            className="cta-content"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2>Ready to Dive In?</h2>
+            <p>
+              Register now to participate in Samskruthi 2025 and immerse yourself in a world of creativity, talent, and cultural celebration.
+            </p>
+            <a href="#" className="register-button">
+              Register Now <FaArrowRight size={16} />
+            </a>
+          </motion.div>
+        </div>
+      </CTASection>
+    </div>
+  );
+};
+
+export default Home;

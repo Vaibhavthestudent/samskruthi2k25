@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #0077b6;
+  --secondary-color: #00b4d8;
+  --accent-color: #ff6b6b;
+  --background-color: #f0f8ff;
+  --text-color: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ocean-blue text-white font-semibold py-2 px-6 rounded-full hover:bg-deep-blue transition-all duration-300 shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-ocean-blue text-ocean-blue font-semibold py-2 px-6 rounded-full hover:bg-ocean-blue hover:text-white transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-deep-blue mb-8 relative;
+  }
+  
+  .section-title::after {
+    @apply content-[''] absolute bottom-[-10px] left-0 w-20 h-1 bg-coral;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300;
+  }
+  
+  .bubble {
+    @apply absolute rounded-full bg-light-blue/30 animate-float;
+  }
+}
