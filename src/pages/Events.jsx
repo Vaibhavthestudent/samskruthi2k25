@@ -3,15 +3,39 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import pic1 from '../assets/Resources/2k24/5.jpg';
-import pic2 from '../assets/Resources/2k24/8.jpg';
-import pic3 from '../assets/Resources/2k24/12.jpg';
-import pic4 from '../assets/Resources/2k24/11.jpg';
-import pic5 from '../assets/Resources/2k24/19.jpg';
-import pic6 from '../assets/Resources/2k24/21.jpg'; 
-import pic7 from '../assets/Resources/2k24/26.jpg';
-import pic8 from '../assets/Resources/2k24/27.jpg';
 
+// Import images with correct paths
+import image1 from '../assets/Resources/2k24/1.JPG';
+import image2 from '../assets/Resources/2k24/2.JPG';
+import image3 from '../assets/Resources/2k24/3.JPG';
+import image4 from '../assets/Resources/2k24/4.JPG';
+import image5 from '../assets/Resources/2k24/5.jpg';
+import image6 from '../assets/Resources/2k24/6.jpg';
+import image7 from '../assets/Resources/2k24/7.jpg';
+import image8 from '../assets/Resources/2k24/8.jpg';
+import image9 from '../assets/Resources/2k24/9.jpg';
+import image10 from '../assets/Resources/2k24/10.jpg';
+import image11 from '../assets/Resources/2k24/11.jpg';
+import image12 from '../assets/Resources/2k24/12.jpg';
+import image13 from '../assets/Resources/2k24/13.jpg';
+import image14 from '../assets/Resources/2k24/14.jpg';
+import image15 from '../assets/Resources/2k24/15.jpg';
+import image16 from '../assets/Resources/2k24/16.jpg';
+import image17 from '../assets/Resources/2k24/17.jpg';
+import image18 from '../assets/Resources/2k24/18.jpg';
+import image19 from '../assets/Resources/2k24/19.JPG';
+import image20 from '../assets/Resources/2k24/20.jpg';
+import image21 from '../assets/Resources/2k24/21.jpg';
+import image22 from '../assets/Resources/2k24/22.jpg';
+import image23 from '../assets/Resources/2k24/23.jpg';
+import image24 from '../assets/Resources/2k24/24.jpg';
+import image25 from '../assets/Resources/2k24/25.jpg';
+import image26 from '../assets/Resources/2k24/26.jpg';
+import image27 from '../assets/Resources/2k24/27.jpg';
+import image28 from '../assets/Resources/2k24/28.JPG';
+import image29 from '../assets/Resources/2k24/29.JPG';
+import image30 from '../assets/Resources/2k24/30.JPG';
+import image31 from '../assets/Resources/2k24/31.JPG';
 
 const PageContainer = styled.div`
   padding-top: 80px; /* Space for navbar */
@@ -253,14 +277,7 @@ const Events = () => {
   
   // On-stage event images
   const onstageImages = [
-    pic1,
-    pic2,
-    pic3,
-    pic4,
-    pic5,
-    pic6,
-    pic7,
-    pic8,
+    image5, image8, image12, image11, image19, image21, image26, image27
   ];
   
   // On-stage events data
