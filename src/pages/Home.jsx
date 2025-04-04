@@ -6,7 +6,12 @@ import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt, FaUsers } from 'react-icon
 import CountdownTimer from '../components/CountdownTimer';
 
 import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
-import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png'; 
+import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png';
+import jonitha from '../assets/Resources/2k24/28.JPG';
+import banner from '../assets/Resources/Gallery/banner.jpg';
+import fashion from '../assets/Resources/Gallery/Fashion_show.jpg';
+import bands from '../assets/Resources/Gallery/Bands.jpg';
+import dj from '../assets/Resources/Gallery/DJ.jpg';      
 
 
 const HeroSection = styled.section`
@@ -516,22 +521,22 @@ const Home = () => {
     {
       title: "Live Concert",
       category: "Music",
-      image: "/src/Resources/2k24/28.jpg"
+      image: jonitha
     },
     {
       title: "DJ Night",
       category: "DJ",
-      image: "/src/Resources/Gallery/DJ.jpg"
+      image: dj
     },
     {
       title: "Fashion Show",
       category: "Fashion",
-      image: "/src/Resources/Gallery/Fashion_show.jpg"
+      image: fashion
     },
     {
       title: "Battle of Bands",
       category: "Competition",
-      image: "/src/Resources/Gallery/Bands.jpg"
+      image: bands
     }
   ];
 
@@ -680,7 +685,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <img 
-                  src="/src/Resources/Gallery/banner.jpg" 
+                  src={banner} 
                   alt="Cultural Performance" 
                 />
                 <div className="circle-1"></div>

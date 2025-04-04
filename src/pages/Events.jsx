@@ -3,6 +3,15 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import pic1 from '../assets/Resources/2k24/5.jpg';
+import pic2 from '../assets/Resources/2k24/8.jpg';
+import pic3 from '../assets/Resources/2k24/12.jpg';
+import pic4 from '../assets/Resources/2k24/11.jpg';
+import pic5 from '../assets/Resources/2k24/19.jpg';
+import pic6 from '../assets/Resources/2k24/21.jpg'; 
+import pic7 from '../assets/Resources/2k24/26.jpg';
+import pic8 from '../assets/Resources/2k24/27.jpg';
+
 
 const PageContainer = styled.div`
   padding-top: 80px; /* Space for navbar */
@@ -244,14 +253,14 @@ const Events = () => {
   
   // On-stage event images
   const onstageImages = [
-    "/src/Resources/2k24/5.jpg",
-    "/src/Resources/2k24/8.jpg",
-    "/src/Resources/2k24/12.jpg",
-    "/src/Resources/2k24/11.jpg",
-    "/src/Resources/2k24/19.jpg",
-    "/src/Resources/2k24/21.jpg",
-    "/src/Resources/2k24/26.jpg",
-    "/src/Resources/2k24/27.jpg",
+    pic1,
+    pic2,
+    pic3,
+    pic4,
+    pic5,
+    pic6,
+    pic7,
+    pic8,
   ];
   
   // On-stage events data

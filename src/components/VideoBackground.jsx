@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import video from '../assets/Resources/Gallery/background_video/hero_video.mp4';    
 
 const VideoContainer = styled.div`
   position: fixed;
@@ -55,7 +56,7 @@ const VideoBackground = () => {
         muted
         playsInline
       >
-        <source src="/src/Resources/Gallery/background_video/hero_video.mp4" type="video/mp4" />
+        <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
       </VideoElement>
       <VideoOverlay />

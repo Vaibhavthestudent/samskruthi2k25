@@ -2,6 +2,56 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaSearch, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import pic1 from '../assets/Resources/2k24/1.jpg';
+import pic2 from '../assets/Resources/2k24/2.jpg';
+import pic3 from '../assets/Resources/2k24/3.jpg';
+import pic4 from '../assets/Resources/2k24/4.jpg';
+import pic5 from '../assets/Resources/2k24/5.jpg';
+import pic6 from '../assets/Resources/2k24/6.jpg';    
+import pic7 from '../assets/Resources/2k24/7.jpg';
+import pic8 from '../assets/Resources/2k24/8.jpg';
+import pic9 from '../assets/Resources/2k24/9.jpg';
+import pic10 from '../assets/Resources/2k24/10.jpg';
+import pic11 from '../assets/Resources/2k24/11.jpg';
+import pic12 from '../assets/Resources/2k24/12.jpg';    
+import pic13 from '../assets/Resources/2k24/13.jpg';
+import pic14 from '../assets/Resources/2k24/14.jpg';
+import pic15 from '../assets/Resources/2k24/15.jpg';
+import pic16 from '../assets/Resources/2k24/16.jpg';
+import pic17 from '../assets/Resources/2k24/17.jpg';
+import pic18 from '../assets/Resources/2k24/18.jpg';  
+import pic19 from '../assets/Resources/2k24/19.jpg';
+import pic20 from '../assets/Resources/2k24/20.jpg';
+import pic21 from '../assets/Resources/2k24/21.jpg';
+import pic22 from '../assets/Resources/2k24/22.jpg';
+import pic23 from '../assets/Resources/2k24/23.jpg';  
+import pic24 from '../assets/Resources/2k24/24.jpg';
+import pic25 from '../assets/Resources/2k24/25.jpg';
+import pic26 from '../assets/Resources/2k24/26.jpg';
+import pic27 from '../assets/Resources/2k24/27.jpg';  
+import pic28 from '../assets/Resources/2k24/28.jpg';
+import pic29 from '../assets/Resources/2k24/29.jpg';
+import pic30 from '../assets/Resources/2k24/30.jpg';
+import pic31 from '../assets/Resources/2k24/31.jpg';
+import pic32 from '../assets/Resources/Gallery/benny/1.jpg';
+import pic33 from '../assets/Resources/Gallery/benny/2.jpg';
+import pic34 from '../assets/Resources/Gallery/benny/3.jpg';
+import pic35 from '../assets/Resources/Gallery/benny/4.jpg';
+import pic36 from '../assets/Resources/Gallery/dance/1.jpg';
+import pic37 from '../assets/Resources/Gallery/dance/2.jpg';
+import pic38 from '../assets/Resources/Gallery/dance/3.jpg';
+import pic39 from '../assets/Resources/Gallery/dance/4.jpg';
+import pic40 from '../assets/Resources/Gallery/dance/5.jpg';
+import pic41 from '../assets/Resources/Gallery/dance/6.jpg';
+import pic42 from '../assets/Resources/Gallery/Crowd/1.jpg';
+import pic43 from '../assets/Resources/Gallery/Crowd/2.jpg';
+import pic44 from '../assets/Resources/Gallery/Crowd/3.jpg';
+import pic45 from '../assets/Resources/Gallery/Crowd/4.jpg';        
+
+
+
+
+
 
 // Modified to be more subtle since we have video background
 const DeepSeaBackground = styled.div`
@@ -287,223 +337,223 @@ const Gallery = () => {
   const images = [
     
     {
-      src: "/src/Resources/2k24/1.jpg",
+      src: pic1,
     //   caption: "Samskruthi 2024 Highlights",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/2.jpg",
+      src: pic2,
     //   caption: "Cultural Performance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/3.jpg",
+      src: pic3,
     //   caption: "Dance Competition 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/4.jpg",
+      src: pic4,
     //   caption: "Music Performance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/5.jpg",
+      src: pic5,
     //   caption: "Award Ceremony 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/6.jpg",
+      src: pic6,
     //   caption: "Fashion Show 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/7.jpg",
+      src: pic7,
     //   caption: "Group Performance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/8.jpg",
+      src: pic8,
     //   caption: "Solo Dance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/9.jpg",
+      src: pic9,
     //   caption: "Audience Engagement 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/10.jpg",
+      src: pic10,
     //   caption: "Stage Performance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/11.jpg",
+      src: pic11,
     //   caption: "Traditional Dance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/12.jpg",
+      src: pic12,
     //   caption: "Celebrity Guest 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/13.jpg",
+      src: pic13,
     //   caption: "Singing Competition 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/14.jpg",
+      src: pic14,
     //   caption: "Art Exhibition 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/15.jpg",
+      src: pic15,
     //   caption: "Drama Performance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/16.jpg",
+      src: pic16,
     //   caption: "Cultural Showcase 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/17.jpg",
+      src: pic17,
     //   caption: "Lighting Ceremony 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/18.jpg",
+      src: pic18,
     //   caption: "Student Performance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/19.jpg",
+      src: pic19,
     //   caption: "Crowd Interaction 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/20.jpg",
+      src: pic20,
     //   caption: "Evening Celebration 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/21.jpg",
+      src: pic21,
     //   caption: "Classical Performance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/22.jpg",
+      src: pic22,
     //   caption: "Modern Dance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/23.jpg",
+      src: pic23,
     //   caption: "Instrumental Show 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/24.jpg",
+      src: pic24,
     //   caption: "Group Singing 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/25.jpg",
+      src: pic25,
     //   caption: "Talent Showcase 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/26.jpg",
+      src: pic26,
     //   caption: "Cultural Fusion 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/27.jpg",
+      src: pic27,
     //   caption: "Artistic Display 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/28.jpg",
+      src: pic28,
     //   caption: "Folk Dance 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/29.jpg",
+      src: pic29,
     //   caption: "Event Finale 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/30.jpg",
+      src: pic30,
     //   caption: "Closing Ceremony 2024",
       category: "samskruthi2k24"
     },
     {
-      src: "/src/Resources/2k24/31.jpg",
+      src: pic31,
     //   caption: "Grand Finale 2024",
       category: "samskruthi2k24"
     },
     
     {
-      src: "/src/Resources/Gallery/benny/2.jpg",
+      src: pic32,
     //   caption: "Live Music Performance",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/benny/3.jpg",
+      src: pic33,
     //   caption: "Concert Highlights",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/benny/4.jpg",
+      src: pic34,
     //   caption: "Music Night Celebration",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/dance/2.jpg",
+      src: pic35,
     //   caption: "Cultural Event 2023",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/dance/1.jpg",
+      src: pic36,
     //   caption: "Traditional Dance Performance",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/dance/3.jpg",
+      src: pic37,
     //   caption: "Contemporary Dance Showcase",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/dance/4.jpg",
+      src: pic38,
     //   caption: "Dance Competition Finals",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/dance/5.jpg",
+      src: pic39,
     //   caption: "Group Dance Performance",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/dance/6.jpg",
+      src: pic40,
     //   caption: "Classical Dance Exhibition",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/Crowd/1.jpg",
+        src: pic42,
     //   caption: "The crowd at the event",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/Crowd/2.jpg",
+      src: pic43,
     //   caption: "Audience Engagement",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/Crowd/3.jpg",
+      src: pic44,
     //   caption: "Event Atmosphere",
       category: "samskruthi2k23"
     },
     {
-      src: "/src/Resources/Gallery/Crowd/4.jpg",
+      src: pic45,
     //   caption: "Celebration Moments",
       category: "samskruthi2k23"
     }

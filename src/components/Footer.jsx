@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
+import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png';
 
 const LogoContainer = styled.div`
   display: flex;
@@ -59,12 +61,12 @@ const Footer = () => {
       <FooterContent>
         <LogoContainer>
           <img 
-            src="/src/Resources/logos/samskruthilogo.png" 
+            src={samskruthiLogo} 
             alt="Samskruthi 2025 Logo" 
             className="transition-all duration-300 hover:scale-105"
           />
           <img 
-            src="/src/Resources/logos/EPGI_LOGO.png" 
+            src={epgiLogo} 
             alt="EPGI Logo" 
             className="college-logo transition-all duration-300 hover:scale-105"
             style={{ 

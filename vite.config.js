@@ -64,5 +64,6 @@ export default defineConfig({
   server: {
     // Enable compression
     compress: true
-  }
+  },
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.png', '**/*.svg', '**/*.mp4']
 })

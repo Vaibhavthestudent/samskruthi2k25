@@ -2,6 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { FaHandshake, FaArrowRight } from 'react-icons/fa';
+import tvs from '../assets/Resources/sponsor_logo/tvs.png';
+import yamaha from '../assets/Resources/sponsor_logo/yamaha.png';
+import ktm from '../assets/Resources/sponsor_logo/ktm.png';
+import mirchi from '../assets/Resources/sponsor_logo/Radio_Mirchi.webp';
+import raj from '../assets/Resources/sponsor_logo/raj.png';
+import decathlon from '../assets/Resources/sponsor_logo/decathlon.svg';
+import saachi from '../assets/Resources/sponsor_logo/saatchi-saatchi.png';
+import ylg from '../assets/Resources/sponsor_logo/ylg.png';
+import coca_cola from '../assets/Resources/sponsor_logo/coca-cola.png';
+import trends from '../assets/Resources/sponsor_logo/trends.png';
+import dominos from '../assets/Resources/sponsor_logo/dominos.svg';
+import printo from '../assets/Resources/sponsor_logo/printo.png';
+import kfc from '../assets/Resources/sponsor_logo/kfc.png';
+import showoff from '../assets/Resources/sponsor_logo/showoff.jpg';
+import careerlabs from '../assets/Resources/sponsor_logo/careerlabs.avif';
+import mcdonalds from '../assets/Resources/sponsor_logo/McDonald.png';
+import mufti from '../assets/Resources/sponsor_logo/mufti.png';
+import pluginhive from '../assets/Resources/sponsor_logo/pluginhive.png';
+import uco from '../assets/Resources/sponsor_logo/uco.png';
+import federal from '../assets/Resources/sponsor_logo/Federal_Bank.png';
+import printsec from '../assets/Resources/sponsor_logo/PrintSEC_Digital.jpg';
+import snackladder from '../assets/Resources/sponsor_logo/snack&ladder.png';
+import shotcircuit from '../assets/Resources/sponsor_logo/shot_circuit.png';
+
+
+
+
+
 
 const PageContainer = styled.div`
   padding-top: 80px;
@@ -453,29 +481,29 @@ const Sponsors = () => {
   
   // Sponsor data with categories
   const sponsorData = [
-    { name: "TVS", logo: "src/Resources/sponsor_logo/tvs.png", category: "automotive" },
-    { name: "YAMAHA", logo: "src/Resources/sponsor_logo/yamaha.png", category: "automotive" },
-    { name: "KTM", logo: "src/Resources/sponsor_logo/ktm.png", category: "automotive" },
-    { name: "Mirchi", logo: "src/Resources/sponsor_logo/Radio_Mirchi.webp", category: "media" },
-    { name: "Raj Music", logo: "src/Resources/sponsor_logo/raj.png", category: "media" },
-    { name: "DECATHLON", logo: "src/Resources/sponsor_logo/decathlon.svg", category: "retail" },
-    { name: "SaaCHI", logo: "src/Resources/sponsor_logo/saatchi-saatchi.png", category: "services" },
-    { name: "YLG SALON", logo: "src/Resources/sponsor_logo/ylg.png", category: "services" },
-    { name: "Coca-Cola", logo: "src/Resources/sponsor_logo/coca-cola.png", category: "food" },
-    { name: "TRENDS", logo: "src/Resources/sponsor_logo/trends.png", category: "retail" },
-    { name: "Domino's Pizza", logo: "src/Resources/sponsor_logo/dominos.svg", category: "food" },
-    { name: "Printo", logo: "src/Resources/sponsor_logo/printo.png", category: "services" },
-    { name: "KFC", logo: "src/Resources/sponsor_logo/kfc.png", category: "food" },
-    { name: "Showoff", logo: "src/Resources/sponsor_logo/showoff.jpg", category: "retail" },
-    { name: "CareerLabs", logo: "src/Resources/sponsor_logo/careerlabs.avif", category: "education" },
-    { name: "McDonald's", logo: "src/Resources/sponsor_logo/McDonald.png", category: "food" },
-    { name: "Mufti", logo: "src/Resources/sponsor_logo/mufti.png", category: "retail" },
-    { name: "PluginHive", logo: "src/Resources/sponsor_logo/pluginhive.png", category: "technology" },
-    { name: "UCO Bank", logo: "src/Resources/sponsor_logo/uco.png", category: "finance" },
-    { name: "Federal Bank", logo: "src/Resources/sponsor_logo/Federal_Bank.png", category: "finance" },
-    { name: "PrintSEC Digital", logo: "src/Resources/sponsor_logo/PrintSEC_Digital.jpg", category: "services" },
-    { name: "Snack and Ladder", logo: "src/Resources/sponsor_logo/snack&ladder.png", category: "food" },
-    { name: "Shot Circuit", logo: "src/Resources/sponsor_logo/shot_circuit.png", category: "technology" }
+      { name: "TVS", logo: tvs, category: "automotive" },
+    { name: "YAMAHA", logo: yamaha, category: "automotive" },
+    { name: "KTM", logo: ktm, category: "automotive" },
+    { name: "Mirchi", logo: mirchi, category: "media" },
+    { name: "Raj Music", logo: raj, category: "media" },
+    { name: "DECATHLON", logo: decathlon, category: "retail" },
+    { name: "SaaCHI", logo: saachi, category: "services" },
+    { name: "YLG SALON", logo: ylg, category: "services" },
+    { name: "Coca-Cola", logo: coca_cola, category: "food" },
+    { name: "TRENDS", logo: trends, category: "retail" },
+    { name: "Domino's Pizza", logo: dominos, category: "food" },
+    { name: "Printo", logo: printo, category: "services" },
+    { name: "KFC", logo: kfc, category: "food" },
+    { name: "Showoff", logo: showoff, category: "retail" },
+    { name: "CareerLabs", logo: careerlabs, category: "education" },
+    { name: "McDonald's", logo: mcdonalds, category: "food" },
+    { name: "Mufti", logo: mufti, category: "retail" },
+    { name: "PluginHive", logo: pluginhive, category: "technology" },
+    { name: "UCO Bank", logo: uco, category: "finance" },
+    { name: "Federal Bank", logo: federal, category: "finance" },
+    { name: "PrintSEC Digital", logo: printsec, category: "services" },
+    { name: "Snack and Ladder", logo: snackladder, category: "food" },
+    { name: "Shot Circuit", logo: shotcircuit, category: "technology" }
   ];
   
   // Categories for filtering
