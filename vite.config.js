@@ -9,6 +9,10 @@ export default defineConfig({
     react(),
     imagetools(),
     VitePWA({
+      strategies: 'generateSW',
+      globDirectory: 'dist',
+      globPatterns: ['**/*.{js,css,html}'],
+      globIgnores: ['node_modules/**/*', 'sw.js', 'workbox-*.js'],
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
