@@ -36,21 +36,21 @@ import image29 from '../assets/Resources/2k24/29.JPG';
 import image30 from '../assets/Resources/2k24/30.JPG';
 import image31 from '../assets/Resources/2k24/31.JPG';
 
-// Import images from Gallery directory with correct case
-import benny1 from '../assets/Resources/Gallery/Benny/1.jpg';
-import benny2 from '../assets/Resources/Gallery/Benny/2.jpg';
-import benny3 from '../assets/Resources/Gallery/Benny/3.jpg';
-import benny4 from '../assets/Resources/Gallery/Benny/4.jpg';
-import dance1 from '../assets/Resources/Gallery/Dance/1.jpg';
-import dance2 from '../assets/Resources/Gallery/Dance/2.jpg';
-import dance3 from '../assets/Resources/Gallery/Dance/3.jpg';
-import dance4 from '../assets/Resources/Gallery/Dance/4.jpg';
-import dance5 from '../assets/Resources/Gallery/Dance/5.jpg';
-import dance6 from '../assets/Resources/Gallery/Dance/6.jpg';
-import crowd1 from '../assets/Resources/Gallery/Crowd/1.jpg';
-import crowd2 from '../assets/Resources/Gallery/Crowd/2.jpg';
-import crowd3 from '../assets/Resources/Gallery/Crowd/3.jpg';
-import crowd4 from '../assets/Resources/Gallery/Crowd/4.jpg';
+// Import images from Gallery directory with correct case and extensions
+import benny1 from '../assets/Resources/Gallery/Benny/1.JPG';
+import benny2 from '../assets/Resources/Gallery/Benny/2.JPG';
+import benny3 from '../assets/Resources/Gallery/Benny/3.JPG';
+import benny4 from '../assets/Resources/Gallery/Benny/4.JPG';
+import dance1 from '../assets/Resources/Gallery/Dance/1.JPG';
+import dance2 from '../assets/Resources/Gallery/Dance/2.JPG';
+import dance3 from '../assets/Resources/Gallery/Dance/3.JPG';
+import dance4 from '../assets/Resources/Gallery/Dance/4.JPG';
+import dance5 from '../assets/Resources/Gallery/Dance/5.JPG';
+import dance6 from '../assets/Resources/Gallery/Dance/6.JPG';
+import crowd1 from '../assets/Resources/Gallery/Crowd/1.JPG';
+import crowd2 from '../assets/Resources/Gallery/Crowd/2.JPG';
+import crowd3 from '../assets/Resources/Gallery/Crowd/3.JPG';
+import crowd4 from '../assets/Resources/Gallery/Crowd/4.JPG';
 
 // Modified to be more subtle since we have video background
 const DeepSeaBackground = styled.div`
