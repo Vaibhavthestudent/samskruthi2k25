@@ -207,7 +207,7 @@ const Navbar = () => {
             <LogoContainer>
               <img className="epgi-logo" src="/src/Resources/logos/EPGI_LOGO.png" alt="EPGI Logo" />
               <div className="divider"></div>
-              <img className="samskruthi-logo" src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" />
+              <img className="samskruthi-logo" src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" style={{filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.2))'}}/>
             </LogoContainer>
           </motion.div>
         </Link>

@@ -13,6 +13,8 @@ const HeroSection = styled.section`
   justify-content: center;
   overflow: hidden;
   padding-top: 80px; /* Add padding to account for navbar height */
+  width: 100%;
+  margin: 0;
   
   &::before {
     content: '';
@@ -33,10 +35,11 @@ const HeroSection = styled.section`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
   }
 
   .container {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 100%;
     padding: 0;
@@ -48,8 +51,8 @@ const HeroSection = styled.section`
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    padding: 0 rem;
-    margin-top: 0; /* Reduced from 2rem to 0 to move content up */
+    margin: 0 auto;
+    padding: 0 1rem;
   }
   
   h1 {
@@ -509,7 +512,7 @@ const Home = () => {
     {
       title: "Live Concert",
       category: "Music",
-      image: "/src/Resources/Gallery/benny/1.jpg"
+      image: "/src/Resources/2k24/28.jpg"
     },
     {
       title: "DJ Night",
@@ -589,16 +592,23 @@ const Home = () => {
               <motion.img 
                 src="/src/Resources/logos/Samskruthilogo.png" 
                 alt="Samskruthi 2025" 
-                style={{ maxWidth: '400px', margin: '0.0rem ' }} // Reduced top margin from default to 0.5rem
+                style={{ 
+                  maxWidth: '600px', 
+                  margin: '0.0rem',
+                  filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5))'
+                }}
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
               />
-              <p className="theme-text">
+              <p className="theme-text" style={{marginTop:-20}}>
               Soak in the Hues of Joy
               </p>
+              <p className="theme-text" style={{marginTop:-15, color:"white"}}>
+              24<sup>th</sup>,  25<sup>th</sup> &  26<sup>th</sup> April
+              </p>
               
-              <p className="description">
+              <p className="description" style={{marginTop:-20}}  >
                 Join us for three days of music, dance, art, and more at East Point Group of Institutions' annual cultural fest.
               </p>
               

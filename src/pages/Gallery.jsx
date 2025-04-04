@@ -547,9 +547,9 @@ const Gallery = () => {
   };
 
   const categories = [
-    { id: 'samskruthi2k24', name: 'Samskruthi 2024' },
-    { id: 'samskruthi2k23', name: 'Samskruthi 2023' },
-    { id: 'samskruthi2k22', name: 'Samskruthi 2022' }
+    { id: 'samskruthi2k24', name: 'Samskruthi 2K24' },
+    { id: 'samskruthi2k23', name: 'Samskruthi 2K23' },
+    { id: 'samskruthi2k22', name: 'Samskruthi 2K22' }
   ];
 
   return (
@@ -566,7 +566,7 @@ const Gallery = () => {
             Our Gallery
           </h1>
           <p className="text-gray-700">
-            Dive into the memories of our past events and experience the magic of Samskruti
+            Dive into the memories of our past events and experience the magic of Samskruthi
           </p>
         </PageHeader>
 
