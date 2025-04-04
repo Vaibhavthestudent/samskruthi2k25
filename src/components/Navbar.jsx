@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
+import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png';
 
 // Update the Logo container with glassmorphic effect
 const LogoContainer = styled.div`
@@ -205,9 +207,9 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <LogoContainer>
-              <img className="epgi-logo" src="/src/Resources/logos/EPGI_LOGO.png" alt="EPGI Logo" />
+              <img className="epgi-logo" src={epgiLogo} alt="EPGI Logo" />
               <div className="divider"></div>
-              <img className="samskruthi-logo" src="/src/Resources/logos/samskruthilogo.png" alt="Samskruthi 2025 Logo" style={{filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.2))'}}/>
+              <img className="samskruthi-logo" src={samskruthiLogo} alt="Samskruthi 2025 Logo" style={{filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.2))'}}/>
             </LogoContainer>
           </motion.div>
         </Link>

@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt, FaUsers } from 'react-icons/fa';
 import CountdownTimer from '../components/CountdownTimer';
 
+import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
+import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png'; 
+
+
 const HeroSection = styled.section`
   min-height: 100vh;
   position: relative;
@@ -557,7 +561,7 @@ const Home = () => {
             >
              
               <motion.img 
-                src="/src/Resources/logos/EPGI_LOGO.png" 
+                src={epgiLogo} 
                 alt="EPGI Logo" 
                 style={{ 
                   maxWidth: '380px', /* Slightly reduced from 400px */
@@ -590,7 +594,7 @@ const Home = () => {
               
               {/* Samskruthi Logo */}
               <motion.img 
-                src="/src/Resources/logos/Samskruthilogo.png" 
+                src={samskruthiLogo} 
                 alt="Samskruthi 2025" 
                 style={{ 
                   maxWidth: '600px', 
