@@ -13,6 +13,7 @@ import bands from '../assets/Resources/Gallery/Bands.JPG';
 import dj from '../assets/Resources/Gallery/DJ.JPG';
 import bannerReveal from '../assets/Resources/Gallery/BANNER_REVEAL.JPG';
 import banner from '../assets/Resources/Gallery/banner.jpg';
+import pdf from '../assets/Samskruthi2k25.pdf';    
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -592,10 +593,35 @@ const Home = () => {
                 src={epgiLogo} 
                 alt="EPGI Logo" 
                 style={{ 
-                  maxWidth: '380px', /* Slightly reduced from 400px */
-                  margin: '0 auto 0.0rem',
+                  maxWidth: '380px',
+                  width: '90%',
+                  margin: '0 auto',
                   filter: 'brightness(0) invert(1)',
-                  marginBottom: "-2rem"
+                  marginBottom: '-2rem',
+                  '@media (max-width: 1200px)': {
+                    maxWidth: '320px'
+                  },
+                  '@media (max-width: 992px)': {
+                    maxWidth: '280px'
+                  },
+                  '@media (max-width: 768px)': {
+                    maxWidth: '240px'
+                  },
+                  '@media (max-width: 576px)': {
+                    maxWidth: '200px'
+                  },
+                  '@media (max-width: 480px)': {
+                    maxWidth: '180px'
+                  },
+                  '@media (max-width: 410px)': {
+                    maxWidth: '160px'
+                  },
+                  '@media (max-width: 360px)': {
+                    maxWidth: '140px'
+                  },
+                  '@media (max-width: 320px)': {
+                    maxWidth: '120px'
+                  }
                 }}
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
@@ -606,12 +632,36 @@ const Home = () => {
               <motion.p
                 style={{ 
                   color: 'white', 
-                  fontSize: '1.5rem', 
+                  fontSize: '1.5rem',
                   fontWeight: '500',
-                  margin: '0 auto 0.0rem', // Reduced top and bottom margins from 0.5rem to 0
+                  margin: '0 auto',
                   fontStyle: 'italic',
                   textAlign: 'center',
-                  marginBottom: "-1rem"
+                  marginBottom: '-1rem',
+                  '@media (max-width: 1200px)': {
+                    fontSize: '1.4rem'
+                  },
+                  '@media (max-width: 992px)': {
+                    fontSize: '1.3rem'
+                  },
+                  '@media (max-width: 768px)': {
+                    fontSize: '1.2rem'
+                  },
+                  '@media (max-width: 576px)': {
+                    fontSize: '1.1rem'
+                  },
+                  '@media (max-width: 480px)': {
+                    fontSize: '1rem'
+                  },
+                  '@media (max-width: 410px)': {
+                    fontSize: '0.9rem'
+                  },
+                  '@media (max-width: 360px)': {
+                    fontSize: '0.8rem'
+                  },
+                  '@media (max-width: 320px)': {
+                    fontSize: '0.75rem'
+                  }
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -630,7 +680,31 @@ const Home = () => {
                   height: 'auto',
                   margin: '0.0rem',
                   filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5))',
+                  '@media (max-width: 1200px)': {
+                    maxWidth: '500px'
+                  },
+                  '@media (max-width: 992px)': {
+                    maxWidth: '450px'
+                  },
                   '@media (max-width: 768px)': {
+                    maxWidth: '400px'
+                  },
+                  '@media (max-width: 576px)': {
+                    maxWidth: '350px'
+                  },
+                  '@media (max-width: 480px)': {
+                    maxWidth: '300px'
+                  },
+                  '@media (max-width: 410px)': {
+                    maxWidth: '280px'
+                  },
+                  '@media (max-width: 360px)': {
+                    maxWidth: '250px'
+                  },
+                  '@media (max-width: 320px)': {
+                    maxWidth: '220px'
+                  },
+                  '@media (max-width: 280px)': {
                     maxWidth: '200px'
                   }
                 }}
@@ -638,18 +712,88 @@ const Home = () => {
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
               />
-              <p className="theme-text" style={{marginTop:-20}}>
-              Soak in the Hues of Joy
+              <p className="theme-text" style={{
+                marginTop: -20,
+                '@media (max-width: 480px)': {
+                  fontSize: '1.1rem',
+                  marginTop: -15
+                },
+                '@media (max-width: 410px)': {
+                  fontSize: '1rem',
+                  marginTop: -12
+                },
+                '@media (max-width: 360px)': {
+                  fontSize: '0.95rem',
+                  marginTop: -10
+                },
+                '@media (max-width: 320px)': {
+                  fontSize: '0.9rem',
+                  marginTop: -8
+                }
+              }}>
+                Soak in the Hues of Joy
               </p>
-              <p className="theme-text" style={{marginTop:-15, color:"white"}}>
-              24<sup>th</sup>,  25<sup>th</sup> &  26<sup>th</sup> April
+              <p className="theme-text" style={{
+                marginTop: -15,
+                color: "white",
+                '@media (max-width: 480px)': {
+                  fontSize: '1.1rem',
+                  marginTop: -10
+                },
+                '@media (max-width: 410px)': {
+                  fontSize: '1rem',
+                  marginTop: -8
+                },
+                '@media (max-width: 360px)': {
+                  fontSize: '0.95rem',
+                  marginTop: -7
+                },
+                '@media (max-width: 320px)': {
+                  fontSize: '0.9rem',
+                  marginTop: -6
+                }
+              }}>
+                24<sup>th</sup>, 25<sup>th</sup> & 26<sup>th</sup> April
               </p>
               
-              <p className="description" style={{marginTop:-20}}  >
+              <p className="description" style={{
+                marginTop: -20,
+                '@media (max-width: 480px)': {
+                  fontSize: '0.9rem',
+                  marginTop: -15,
+                  padding: '0 1rem'
+                },
+                '@media (max-width: 410px)': {
+                  fontSize: '0.85rem',
+                  marginTop: -12,
+                  padding: '0 0.75rem'
+                },
+                '@media (max-width: 360px)': {
+                  fontSize: '0.8rem',
+                  marginTop: -10,
+                  padding: '0 0.5rem'
+                },
+                '@media (max-width: 320px)': {
+                  fontSize: '0.75rem',
+                  marginTop: -8,
+                  padding: '0 0.4rem'
+                }
+              }}>
                 Join us for three days of music, dance, art, and more at East Point Group of Institutions' annual cultural fest.
               </p>
               
-              <div style={{marginBottom: '2rem'}}>
+              <div style={{
+                marginBottom: '2rem',
+                '@media (max-width: 480px)': {
+                  marginBottom: '1.5rem'
+                },
+                '@media (max-width: 410px)': {
+                  marginBottom: '1.25rem'
+                },
+                '@media (max-width: 360px)': {
+                  marginBottom: '1rem'
+                }
+              }}>
                 <CountdownTimer targetDate={eventDate} />
               </div>
               
@@ -657,22 +801,74 @@ const Home = () => {
                 display: 'flex', 
                 gap: '1rem',
                 flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                maxWidth: '600px',
+                margin: '0 auto',
+                '@media (max-width: 992px)': {
+                  maxWidth: '500px'
+                },
                 '@media (max-width: 768px)': {
                   flexDirection: 'column',
-                  width: '100%',
+                  maxWidth: '400px',
+                  gap: '0.75rem'
+                },
+                '@media (max-width: 576px)': {
+                  maxWidth: '350px'
+                },
+                '@media (max-width: 480px)': {
                   maxWidth: '300px',
-                  margin: '0 auto'
+                  gap: '0.5rem'
+                },
+                '@media (max-width: 410px)': {
+                  maxWidth: '280px',
+                  gap: '0.4rem'
+                },
+                '@media (max-width: 360px)': {
+                  maxWidth: '250px',
+                  gap: '0.3rem'
+                },
+                '@media (max-width: 320px)': {
+                  maxWidth: '220px',
+                  gap: '0.25rem'
                 }
               }}>
                 <motion.a 
-                  href="/src/assets/Samskruthi2k25.pdf" 
+                  href={pdf} 
                   download
                   className="btn-primary"
                   style={{
                     padding: '0.75rem 1.5rem',
+                    width: '100%',
+                    textAlign: 'center',
+                    '@media (max-width: 992px)': {
+                      padding: '0.7rem 1.3rem',
+                      fontSize: '0.95rem'
+                    },
                     '@media (max-width: 768px)': {
-                      width: '100%',
-                      textAlign: 'center'
+                      padding: '0.6rem 1.2rem',
+                      fontSize: '0.9rem'
+                    },
+                    '@media (max-width: 576px)': {
+                      padding: '0.55rem 1.1rem',
+                      fontSize: '0.85rem'
+                    },
+                    '@media (max-width: 480px)': {
+                      padding: '0.5rem 1rem',
+                      fontSize: '0.8rem'
+                    },
+                    '@media (max-width: 410px)': {
+                      padding: '0.45rem 0.9rem',
+                      fontSize: '0.75rem'
+                    },
+                    '@media (max-width: 360px)': {
+                      padding: '0.4rem 0.8rem',
+                      fontSize: '0.7rem'
+                    },
+                    '@media (max-width: 320px)': {
+                      padding: '0.35rem 0.7rem',
+                      fontSize: '0.65rem'
                     }
                   }}
                   whileHover={{ scale: 1.05 }}
@@ -685,9 +881,35 @@ const Home = () => {
                   className="btn-primary"
                   style={{
                     padding: '0.75rem 1.5rem',
+                    width: '100%',
+                    textAlign: 'center',
+                    '@media (max-width: 992px)': {
+                      padding: '0.7rem 1.3rem',
+                      fontSize: '0.95rem'
+                    },
                     '@media (max-width: 768px)': {
-                      width: '100%',
-                      textAlign: 'center'
+                      padding: '0.6rem 1.2rem',
+                      fontSize: '0.9rem'
+                    },
+                    '@media (max-width: 576px)': {
+                      padding: '0.55rem 1.1rem',
+                      fontSize: '0.85rem'
+                    },
+                    '@media (max-width: 480px)': {
+                      padding: '0.5rem 1rem',
+                      fontSize: '0.8rem'
+                    },
+                    '@media (max-width: 410px)': {
+                      padding: '0.45rem 0.9rem',
+                      fontSize: '0.75rem'
+                    },
+                    '@media (max-width: 360px)': {
+                      padding: '0.4rem 0.8rem',
+                      fontSize: '0.7rem'
+                    },
+                    '@media (max-width: 320px)': {
+                      padding: '0.45rem 0.9rem',
+                      fontSize: '0.35rem'
                     }
                   }}
                   whileHover={{ scale: 1.05 }}
