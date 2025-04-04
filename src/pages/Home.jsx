@@ -13,7 +13,7 @@ import bands from '../assets/Resources/Gallery/Bands.JPG';
 import dj from '../assets/Resources/Gallery/DJ.JPG';
 import bannerReveal from '../assets/Resources/Gallery/BANNER_REVEAL.JPG';
 import banner from '../assets/Resources/Gallery/banner.jpg';
-import pdf from '../assets/Samskruthi2k25.pdf';    
+import pdf from '../assets/Samskruthi2K25.pdf';    
 
 const HeroSection = styled.section`
   min-height: 100vh;
