@@ -1,13 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
-import imagetools from 'vite-imagetools'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    imagetools(),
     VitePWA({
       manifest: {
         name: 'Samskruthi 2025',
