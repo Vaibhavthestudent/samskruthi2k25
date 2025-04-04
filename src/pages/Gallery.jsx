@@ -35,25 +35,22 @@ import image28 from '../assets/Resources/2k24/28.JPG';
 import image29 from '../assets/Resources/2k24/29.JPG';
 import image30 from '../assets/Resources/2k24/30.JPG';
 import image31 from '../assets/Resources/2k24/31.JPG';
-import pic32 from '../assets/Resources/Gallery/benny/1.jpg';
-import pic33 from '../assets/Resources/Gallery/benny/2.jpg';
-import pic34 from '../assets/Resources/Gallery/benny/3.jpg';
-import pic35 from '../assets/Resources/Gallery/benny/4.jpg';
-import pic36 from '../assets/Resources/Gallery/dance/1.jpg';
-import pic37 from '../assets/Resources/Gallery/dance/2.jpg';
-import pic38 from '../assets/Resources/Gallery/dance/3.jpg';
-import pic39 from '../assets/Resources/Gallery/dance/4.jpg';
-import pic40 from '../assets/Resources/Gallery/dance/5.jpg';
-import pic41 from '../assets/Resources/Gallery/dance/6.jpg';
-import pic42 from '../assets/Resources/Gallery/Crowd/1.jpg';
-import pic43 from '../assets/Resources/Gallery/Crowd/2.jpg';
-import pic44 from '../assets/Resources/Gallery/Crowd/3.jpg';
-import pic45 from '../assets/Resources/Gallery/Crowd/4.jpg';        
 
-
-
-
-
+// Import images from Gallery directory with correct case
+import benny1 from '../assets/Resources/Gallery/Benny/1.jpg';
+import benny2 from '../assets/Resources/Gallery/Benny/2.jpg';
+import benny3 from '../assets/Resources/Gallery/Benny/3.jpg';
+import benny4 from '../assets/Resources/Gallery/Benny/4.jpg';
+import dance1 from '../assets/Resources/Gallery/Dance/1.jpg';
+import dance2 from '../assets/Resources/Gallery/Dance/2.jpg';
+import dance3 from '../assets/Resources/Gallery/Dance/3.jpg';
+import dance4 from '../assets/Resources/Gallery/Dance/4.jpg';
+import dance5 from '../assets/Resources/Gallery/Dance/5.jpg';
+import dance6 from '../assets/Resources/Gallery/Dance/6.jpg';
+import crowd1 from '../assets/Resources/Gallery/Crowd/1.jpg';
+import crowd2 from '../assets/Resources/Gallery/Crowd/2.jpg';
+import crowd3 from '../assets/Resources/Gallery/Crowd/3.jpg';
+import crowd4 from '../assets/Resources/Gallery/Crowd/4.jpg';
 
 // Modified to be more subtle since we have video background
 const DeepSeaBackground = styled.div`
@@ -368,72 +365,20 @@ const Gallery = () => {
     { src: image29, title: 'Event 29', category: 'performance' },
     { src: image30, title: 'Event 30', category: 'dance' },
     { src: image31, title: 'Event 31', category: 'music' },
-    
-    {
-      src: pic32,
-    //   caption: "Live Music Performance",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic33,
-    //   caption: "Concert Highlights",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic34,
-    //   caption: "Music Night Celebration",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic35,
-    //   caption: "Cultural Event 2023",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic36,
-    //   caption: "Traditional Dance Performance",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic37,
-    //   caption: "Contemporary Dance Showcase",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic38,
-    //   caption: "Dance Competition Finals",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic39,
-    //   caption: "Group Dance Performance",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic40,
-    //   caption: "Classical Dance Exhibition",
-      category: "samskruthi2k23"
-    },
-    {
-        src: pic42,
-    //   caption: "The crowd at the event",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic43,
-    //   caption: "Audience Engagement",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic44,
-    //   caption: "Event Atmosphere",
-      category: "samskruthi2k23"
-    },
-    {
-      src: pic45,
-    //   caption: "Celebration Moments",
-      category: "samskruthi2k23"
-    }
+    { src: benny1, title: 'Benny Performance 1', category: 'samskruthi2k23' },
+    { src: benny2, title: 'Benny Performance 2', category: 'samskruthi2k23' },
+    { src: benny3, title: 'Benny Performance 3', category: 'samskruthi2k23' },
+    { src: benny4, title: 'Benny Performance 4', category: 'samskruthi2k23' },
+    { src: dance1, title: 'Dance Performance 1', category: 'samskruthi2k23' },
+    { src: dance2, title: 'Dance Performance 2', category: 'samskruthi2k23' },
+    { src: dance3, title: 'Dance Performance 3', category: 'samskruthi2k23' },
+    { src: dance4, title: 'Dance Performance 4', category: 'samskruthi2k23' },
+    { src: dance5, title: 'Dance Performance 5', category: 'samskruthi2k23' },
+    { src: dance6, title: 'Dance Performance 6', category: 'samskruthi2k23' },
+    { src: crowd1, title: 'Crowd Scene 1', category: 'samskruthi2k23' },
+    { src: crowd2, title: 'Crowd Scene 2', category: 'samskruthi2k23' },
+    { src: crowd3, title: 'Crowd Scene 3', category: 'samskruthi2k23' },
+    { src: crowd4, title: 'Crowd Scene 4', category: 'samskruthi2k23' }
   ];
 
   useEffect(() => {
