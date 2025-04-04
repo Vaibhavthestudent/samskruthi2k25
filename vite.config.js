@@ -23,7 +23,7 @@ export default defineConfig({
       workbox: {
         globDirectory: 'dist',
         globPatterns: [
-          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,webp,mp4}'
+          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,webp,mp4,JPG}'
         ],
         globIgnores: [
           '**/node_modules/**/*',
@@ -61,5 +61,8 @@ export default defineConfig({
     port: 3000,
     open: true
   },
-  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.png', '**/*.svg', '**/*.mp4', '**/*.webp']
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.png', '**/*.svg', '**/*.mp4', '**/*.webp'],
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'framer-motion', 'styled-components']
+  }
 })

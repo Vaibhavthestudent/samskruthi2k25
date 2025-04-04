@@ -8,11 +8,11 @@ import CountdownTimer from '../components/CountdownTimer';
 import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
 import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png';
 import jonitha from '../assets/Resources/2k24/28.JPG';
+import fashionShow from '../assets/Resources/Gallery/Fashion_Show.jpg';
+import bands from '../assets/Resources/Gallery/Bands.JPG';
+import dj from '../assets/Resources/Gallery/DJ.JPG';
+import bannerReveal from '../assets/Resources/Gallery/BANNER_REVEAL.JPG';
 import banner from '../assets/Resources/Gallery/banner.jpg';
-import fashion from '../assets/Resources/Gallery/Fashion_show.jpg';
-import bands from '../assets/Resources/Gallery/Bands.jpg';
-import dj from '../assets/Resources/Gallery/DJ.jpg';      
-
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -493,6 +493,29 @@ const CTASection = styled.section`
   }
 `;
 
+const galleryImages = [
+  {
+    src: fashionShow,
+    title: 'Fashion Show',
+    description: 'A spectacular showcase of style and creativity'
+  },
+  {
+    src: bands,
+    title: 'Battle of Bands',
+    description: 'Where music meets competition'
+  },
+  {
+    src: dj,
+    title: 'DJ Night',
+    description: 'An electrifying night of music and dance'
+  },
+  {
+    src: bannerReveal,
+    title: 'Banner Reveal',
+    description: 'The grand unveiling of Samskruthi 2025'
+  }
+];
+
 const Home = () => {
   // Sample event date - replace with actual date
   const eventDate = "2025-04-24T09:00:00";
@@ -531,7 +554,7 @@ const Home = () => {
     {
       title: "Fashion Show",
       category: "Fashion",
-      image: fashion
+      image: fashionShow
     },
     {
       title: "Battle of Bands",
