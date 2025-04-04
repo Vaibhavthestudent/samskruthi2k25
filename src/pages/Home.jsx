@@ -676,7 +676,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <img 
-                  src="/src/Resources/Gallery/BANNER_REVEAL.jpg" 
+                  src="/src/Resources/Gallery/banner.jpg" 
                   alt="Cultural Performance" 
                 />
                 <div className="circle-1"></div>

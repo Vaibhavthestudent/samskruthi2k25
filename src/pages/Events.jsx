@@ -224,26 +224,33 @@ const Events = () => {
   
   // On-stage events data
   const onstageEvents = [
-    { name: "Solo Singing", description: "Showcase your vocal talent" },
-    { name: "Group Dance", description: "Choreographed performances" },
-    { name: "Fashion Show", description: "Strut the runway with style" },
-    { name: "Battle of Bands", description: "Rock the stage with your band" },
-    { name: "Solo Dance", description: "Express yourself through movement" },
-    { name: "DJ Night", description: "Dance to the beats" },
-    { name: "Live Concert", description: "Experience live music" },
-    { name: "Theatrical Play", description: "Dramatic performances" }
+    { "name": "Classical Dance", "description": "Graceful traditional moves" },
+  { "name": "Classical Singing", "description": "Melodic heritage vocals" },
+  { "name": "Duet Singing", "description": "Harmonized vocal duo" },
+  { "name": "Solo Singing", "description": "Expressive solo melodies" },
+  { "name": "Duet Dance", "description": "Synchronized dance pair" },
+  { "name": "Solo Dance", "description": "Individual artistic expression" },
+  { "name": "Group Dance", "description": "Energetic team performance" },
+  { "name": "Beatboxing", "description": "Rhythmic vocal beats" },
+  { "name": "Fashion Show", "description": "Stylish runway showcase" },
+  { "name": "Instrumental", "description": "Musical mastery display" },
+  { "name": "Battle of Bands", "description": "Intense musical showdown" }
+    
   ];
   
   // Off-stage events data
   const offstageEvents = [
-    { name: "Painting", description: "Express through colors" },
-    { name: "Photography", description: "Capture the moment" },
-    { name: "Creative Writing", description: "Pen your thoughts" },
-    { name: "Rangoli", description: "Traditional art form" },
-    { name: "Debate", description: "Voice your opinions" },
-    { name: "Quiz", description: "Test your knowledge" },
-    { name: "Treasure Hunt", description: "Find the hidden clues" },
-    { name: "Gaming", description: "Compete in digital arenas" }
+    { "name": "Painting", "description": "Creative color strokes" },
+  { "name": "Rangoli", "description": "Vibrant floor art" },
+  { "name": "Short Film", "description": "Visual storytelling creativity" },
+  { "name": "Sketching", "description": "Expressive pencil artistry" },
+  { "name": "Dance Battle", "description": "High-energy face-off" },
+  { "name": "Photography", "description": "Capturing perfect moments" },
+  { "name": "Mehendi", "description": "Intricate henna designs" },
+  { "name": "Treasure Hunt", "description": "Adventurous clue-solving" },
+  { "name": "Quiz", "description": "Knowledge-testing challenge" },
+  { "name": "Spoken Poetry", "description": "Expressive word artistry" },
+  { "name": "Body Building", "description": "Strength and aesthetics" }
   ];
   
   // Carousel navigation functions
