@@ -19,7 +19,7 @@ import showoff from '../assets/Resources/sponsor_logo/showoff.jpg';
 import careerlabs from '../assets/Resources/sponsor_logo/careerlabs.avif';
 import mcdonalds from '../assets/Resources/sponsor_logo/McDonald.png';
 import mufti from '../assets/Resources/sponsor_logo/mufti.png';
-import pluginhive from '../assets/Resources/sponsor_logo/pluginhive.png';
+import pluginhive from '../assets/Resources/sponsor_logo/PluginHive.png';
 import uco from '../assets/Resources/sponsor_logo/uco.png';
 import federal from '../assets/Resources/sponsor_logo/Federal_Bank.png';
 import printsec from '../assets/Resources/sponsor_logo/PrintSEC_Digital.jpg';
