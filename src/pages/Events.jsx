@@ -392,7 +392,7 @@ const Events = () => {
           
           {/* Register button for on-stage events */}
           <div className="text-center">
-            <RegisterButton to="#">
+            <RegisterButton to="https://forms.gle/2zpD7ZEPirzLuG8s6">
               Register for On-Stage Events
             </RegisterButton>
           </div>
@@ -431,7 +431,7 @@ const Events = () => {
           
           {/* Register button for off-stage events */}
           <div className="text-center">
-            <RegisterButton to="#">
+            <RegisterButton to="https://forms.gle/juJzqMwZhqJkZYQr8">
               Register for Off-Stage Events
             </RegisterButton>
           </div>

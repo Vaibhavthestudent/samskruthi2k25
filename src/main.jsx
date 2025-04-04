@@ -1,34 +1,33 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { registerSW } from 'virtual:pwa-register'
 import './index.css'
-
-// Only import web-vitals in development
-if (import.meta.env.DEV) {
-  import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-    getCLS(console.log);
-    getFID(console.log);
-    getFCP(console.log);
-    getLCP(console.log);
-    getTTFB(console.log);
-  });
-}
+import App from './App.jsx'
 
 // Register service worker for PWA
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(error => {
-        console.log('SW registration failed: ', error);
-      });
-  });
+  registerSW()
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+// Add performance monitoring
+if (process.env.NODE_ENV === 'production') {
+  const reportWebVitals = onPerfEntry => {
+    if (onPerfEntry && onPerfEntry instanceof Function) {
+      import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+        getCLS(onPerfEntry)
+        getFID(onPerfEntry)
+        getFCP(onPerfEntry)
+        getLCP(onPerfEntry)
+        getTTFB(onPerfEntry)
+      })
+    }
+  }
+  
+  reportWebVitals(console.log)
+}
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>,
+  </StrictMode>,
 )

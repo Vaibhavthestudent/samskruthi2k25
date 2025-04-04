@@ -189,7 +189,7 @@ const Contact = () => {
             </div>
             <div className="info-item">
               <FaEnvelope />
-              <a href="mailto:samskruthi@eastpoint.ac.in">samskruthi@eastpoint.ac.in</a>
+              <a href="mailto:sponsors@samskruthi.com">sponsors@samskruthi.com</a>
             </div>
             <div className="info-item">
               <FaMapMarkerAlt />

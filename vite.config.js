@@ -10,40 +10,24 @@ export default defineConfig({
     imagetools(),
     VitePWA({
       registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'Samskruthi 2025',
         short_name: 'Samskruthi',
-        description: 'Official website for Samskruthi 2025',
-        theme_color: '#03045e',
+        description: 'East Point Group of Institutions Annual Cultural Fest',
+        theme_color: '#0077b6',
+        background_color: '#ffffff',
+        display: 'standalone',
         icons: [
           {
-            src: '/images/logos/Samskruthilogo.png',
+            src: '/icons/icon-192x192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/images/logos/Samskruthilogo.png',
+            src: '/icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png'
-          }
-        ]
-      },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,webp,woff,woff2,ttf}'],
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/images\.unsplash\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'unsplash-images',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
-            }
           }
         ]
       }
@@ -60,11 +44,11 @@ export default defineConfig({
     },
     // Split chunks for better caching
     rollupOptions: {
-      external: ['web-vitals'],
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'ui-vendor': ['styled-components', 'framer-motion']
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'animation-vendor': ['framer-motion'],
+          'ui-vendor': ['styled-components', 'react-icons']
         }
       }
     },
@@ -74,7 +58,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000
   },
   server: {
-    port: 3000,
-    open: true
+    // Enable compression
+    compress: true
   }
 })

@@ -223,7 +223,7 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
-          <GlassButton href="#register">
+          <GlassButton as={Link} to="/events">
             Register Now
           </GlassButton>
         </DesktopMenu>

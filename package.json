@@ -9,8 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "analyze": "vite build --mode analyze",
-    "optimize-images": "node scripts/optimize-images.js",
-    "move-assets": "node scripts/move-assets.js"
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.17",
@@ -39,7 +38,6 @@
     "imagemin": "^8.0.1",
     "imagemin-webp": "^8.0.0",
     "terser": "^5.27.0",
-    "rollup-plugin-visualizer": "^5.12.0",
-    "web-vitals": "^3.5.2"
+    "rollup-plugin-visualizer": "^5.12.0"
   }
 }

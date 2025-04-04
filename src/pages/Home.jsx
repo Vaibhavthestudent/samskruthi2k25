@@ -627,7 +627,7 @@ const Home = () => {
                   Download Brochure
                 </motion.a>
                 <motion.a 
-                  href="#register" 
+                  href="/events" 
                   className="btn-primary"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -777,7 +777,7 @@ const Home = () => {
             <p>
               Register now to participate in Samskruthi 2025 and immerse yourself in a world of creativity, talent, and cultural celebration.
             </p>
-            <a href="#" className="register-button">
+            <a href="/Events" className="register-button">
               Register Now <FaArrowRight size={16} />
             </a>
           </motion.div>
