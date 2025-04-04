@@ -2,37 +2,39 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaSearch, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import pic1 from '../assets/Resources/2k24/1.jpg';
-import pic2 from '../assets/Resources/2k24/2.jpg';
-import pic3 from '../assets/Resources/2k24/3.jpg';
-import pic4 from '../assets/Resources/2k24/4.jpg';
-import pic5 from '../assets/Resources/2k24/5.jpg';
-import pic6 from '../assets/Resources/2k24/6.jpg';    
-import pic7 from '../assets/Resources/2k24/7.jpg';
-import pic8 from '../assets/Resources/2k24/8.jpg';
-import pic9 from '../assets/Resources/2k24/9.jpg';
-import pic10 from '../assets/Resources/2k24/10.jpg';
-import pic11 from '../assets/Resources/2k24/11.jpg';
-import pic12 from '../assets/Resources/2k24/12.jpg';    
-import pic13 from '../assets/Resources/2k24/13.jpg';
-import pic14 from '../assets/Resources/2k24/14.jpg';
-import pic15 from '../assets/Resources/2k24/15.jpg';
-import pic16 from '../assets/Resources/2k24/16.jpg';
-import pic17 from '../assets/Resources/2k24/17.jpg';
-import pic18 from '../assets/Resources/2k24/18.jpg';  
-import pic19 from '../assets/Resources/2k24/19.jpg';
-import pic20 from '../assets/Resources/2k24/20.jpg';
-import pic21 from '../assets/Resources/2k24/21.jpg';
-import pic22 from '../assets/Resources/2k24/22.jpg';
-import pic23 from '../assets/Resources/2k24/23.jpg';  
-import pic24 from '../assets/Resources/2k24/24.jpg';
-import pic25 from '../assets/Resources/2k24/25.jpg';
-import pic26 from '../assets/Resources/2k24/26.jpg';
-import pic27 from '../assets/Resources/2k24/27.jpg';  
-import pic28 from '../assets/Resources/2k24/28.jpg';
-import pic29 from '../assets/Resources/2k24/29.jpg';
-import pic30 from '../assets/Resources/2k24/30.jpg';
-import pic31 from '../assets/Resources/2k24/31.jpg';
+
+// Import images with correct paths and extensions
+import image1 from '../assets/Resources/2k24/1.JPG';
+import image2 from '../assets/Resources/2k24/2.JPG';
+import image3 from '../assets/Resources/2k24/3.JPG';
+import image4 from '../assets/Resources/2k24/4.JPG';
+import image5 from '../assets/Resources/2k24/5.jpg';
+import image6 from '../assets/Resources/2k24/6.jpg';
+import image7 from '../assets/Resources/2k24/7.jpg';
+import image8 from '../assets/Resources/2k24/8.jpg';
+import image9 from '../assets/Resources/2k24/9.jpg';
+import image10 from '../assets/Resources/2k24/10.jpg';
+import image11 from '../assets/Resources/2k24/11.jpg';
+import image12 from '../assets/Resources/2k24/12.jpg';
+import image13 from '../assets/Resources/2k24/13.jpg';
+import image14 from '../assets/Resources/2k24/14.jpg';
+import image15 from '../assets/Resources/2k24/15.jpg';
+import image16 from '../assets/Resources/2k24/16.jpg';
+import image17 from '../assets/Resources/2k24/17.jpg';
+import image18 from '../assets/Resources/2k24/18.jpg';
+import image19 from '../assets/Resources/2k24/19.JPG';
+import image20 from '../assets/Resources/2k24/20.jpg';
+import image21 from '../assets/Resources/2k24/21.jpg';
+import image22 from '../assets/Resources/2k24/22.jpg';
+import image23 from '../assets/Resources/2k24/23.jpg';
+import image24 from '../assets/Resources/2k24/24.jpg';
+import image25 from '../assets/Resources/2k24/25.jpg';
+import image26 from '../assets/Resources/2k24/26.jpg';
+import image27 from '../assets/Resources/2k24/27.jpg';
+import image28 from '../assets/Resources/2k24/28.JPG';
+import image29 from '../assets/Resources/2k24/29.JPG';
+import image30 from '../assets/Resources/2k24/30.JPG';
+import image31 from '../assets/Resources/2k24/31.JPG';
 import pic32 from '../assets/Resources/Gallery/benny/1.jpg';
 import pic33 from '../assets/Resources/Gallery/benny/2.jpg';
 import pic34 from '../assets/Resources/Gallery/benny/3.jpg';
@@ -335,162 +337,37 @@ const Gallery = () => {
   
   // Gallery images from local folder
   const images = [
-    
-    {
-      src: pic1,
-    //   caption: "Samskruthi 2024 Highlights",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic2,
-    //   caption: "Cultural Performance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic3,
-    //   caption: "Dance Competition 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic4,
-    //   caption: "Music Performance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic5,
-    //   caption: "Award Ceremony 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic6,
-    //   caption: "Fashion Show 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic7,
-    //   caption: "Group Performance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic8,
-    //   caption: "Solo Dance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic9,
-    //   caption: "Audience Engagement 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic10,
-    //   caption: "Stage Performance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic11,
-    //   caption: "Traditional Dance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic12,
-    //   caption: "Celebrity Guest 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic13,
-    //   caption: "Singing Competition 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic14,
-    //   caption: "Art Exhibition 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic15,
-    //   caption: "Drama Performance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic16,
-    //   caption: "Cultural Showcase 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic17,
-    //   caption: "Lighting Ceremony 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic18,
-    //   caption: "Student Performance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic19,
-    //   caption: "Crowd Interaction 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic20,
-    //   caption: "Evening Celebration 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic21,
-    //   caption: "Classical Performance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic22,
-    //   caption: "Modern Dance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic23,
-    //   caption: "Instrumental Show 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic24,
-    //   caption: "Group Singing 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic25,
-    //   caption: "Talent Showcase 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic26,
-    //   caption: "Cultural Fusion 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic27,
-    //   caption: "Artistic Display 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic28,
-    //   caption: "Folk Dance 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic29,
-    //   caption: "Event Finale 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic30,
-    //   caption: "Closing Ceremony 2024",
-      category: "samskruthi2k24"
-    },
-    {
-      src: pic31,
-    //   caption: "Grand Finale 2024",
-      category: "samskruthi2k24"
-    },
+    { src: image1, title: 'Event 1', category: 'performance' },
+    { src: image2, title: 'Event 2', category: 'dance' },
+    { src: image3, title: 'Event 3', category: 'music' },
+    { src: image4, title: 'Event 4', category: 'fashion' },
+    { src: image5, title: 'Event 5', category: 'performance' },
+    { src: image6, title: 'Event 6', category: 'dance' },
+    { src: image7, title: 'Event 7', category: 'music' },
+    { src: image8, title: 'Event 8', category: 'fashion' },
+    { src: image9, title: 'Event 9', category: 'performance' },
+    { src: image10, title: 'Event 10', category: 'dance' },
+    { src: image11, title: 'Event 11', category: 'music' },
+    { src: image12, title: 'Event 12', category: 'fashion' },
+    { src: image13, title: 'Event 13', category: 'performance' },
+    { src: image14, title: 'Event 14', category: 'dance' },
+    { src: image15, title: 'Event 15', category: 'music' },
+    { src: image16, title: 'Event 16', category: 'fashion' },
+    { src: image17, title: 'Event 17', category: 'performance' },
+    { src: image18, title: 'Event 18', category: 'dance' },
+    { src: image19, title: 'Event 19', category: 'music' },
+    { src: image20, title: 'Event 20', category: 'fashion' },
+    { src: image21, title: 'Event 21', category: 'performance' },
+    { src: image22, title: 'Event 22', category: 'dance' },
+    { src: image23, title: 'Event 23', category: 'music' },
+    { src: image24, title: 'Event 24', category: 'fashion' },
+    { src: image25, title: 'Event 25', category: 'performance' },
+    { src: image26, title: 'Event 26', category: 'dance' },
+    { src: image27, title: 'Event 27', category: 'music' },
+    { src: image28, title: 'Event 28', category: 'fashion' },
+    { src: image29, title: 'Event 29', category: 'performance' },
+    { src: image30, title: 'Event 30', category: 'dance' },
+    { src: image31, title: 'Event 31', category: 'music' },
     
     {
       src: pic32,
@@ -649,10 +526,10 @@ const Gallery = () => {
             >
               <img
                 src={image.src}
-                alt={image.caption}
+                alt={image.title}
               />
               <ImageOverlay>
-                <p>{image.caption}</p>
+                <p>{image.title}</p>
                 <div className="zoom-icon">
                   <FaSearch size={16} />
                 </div>
@@ -690,10 +567,10 @@ const Gallery = () => {
               <FaTimes />
             </CloseButton>
             
-            <img src={selectedImage.src} alt={selectedImage.caption} />
+            <img src={selectedImage.src} alt={selectedImage.title} />
             
-            {selectedImage.caption && (
-              <div className="caption">{selectedImage.caption}</div>
+            {selectedImage.title && (
+              <div className="caption">{selectedImage.title}</div>
             )}
           </ModalContent>
           
