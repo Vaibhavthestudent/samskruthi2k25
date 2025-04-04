@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
@@ -72,11 +72,20 @@ const CarouselContainer = styled.div`
     overflow: hidden;
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 400px;
     
     img {
+      position: absolute;
       width: 100%;
-      height: 400px;
+      height: 100%;
       object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.0s ease-in-out;
+      
+      &.active {
+        opacity: 1;
+      }
     }
   }
   
@@ -88,6 +97,7 @@ const CarouselContainer = styled.div`
     justify-content: space-between;
     transform: translateY(-50%);
     padding: 0 1rem;
+    z-index: 2;
     
     button {
       background: rgba(0, 0, 0, 0.5);
@@ -112,6 +122,7 @@ const CarouselContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    z-index: 2;
     
     .dot {
       width: 0.75rem;
@@ -209,6 +220,27 @@ const RegisterButton = styled(Link)`
 const Events = () => {
   // State for carousel
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-slide effect
+  useEffect(() => {
+    let interval;
+    if (isAutoPlaying) {
+      interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev === onstageImages.length - 1 ? 0 : prev + 1));
+      }, 2500);
+    }
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  // Pause auto-play on hover
+  const handleMouseEnter = () => {
+    setIsAutoPlaying(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoPlaying(true);
+  };
   
   // On-stage event images
   const onstageImages = [
@@ -303,15 +335,19 @@ const Events = () => {
           </div>
           
           {/* Carousel for on-stage events */}
-          <CarouselContainer>
+          <CarouselContainer
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <div className="carousel">
-              <motion.img 
-                src={onstageImages[currentSlide]} 
-                alt={`On-stage event ${currentSlide + 1}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              />
+              {onstageImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`On-stage event ${index + 1}`}
+                  className={currentSlide === index ? 'active' : ''}
+                />
+              ))}
             </div>
             
             <div className="controls">

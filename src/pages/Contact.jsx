@@ -162,7 +162,7 @@ const Contact = () => {
             </div>
             <div className="info-item">
               <FaEnvelope />
-              <a href="mailto:registration@samskruthi.com">registration@samskruthi.com</a>
+              <a href="mailto:registration.samskruthi@eastpoint.ac.in">registration.samskruthi@eastpoint.ac.in</a>
             </div>
             <div className="info-item">
               <FaMapMarkerAlt />
@@ -189,7 +189,7 @@ const Contact = () => {
             </div>
             <div className="info-item">
               <FaEnvelope />
-              <a href="mailto:sponsors@samskruthi.com">sponsors@samskruthi.com</a>
+              <a href="mailto:samskruthi@eastpoint.ac.in">samskruthi@eastpoint.ac.in</a>
             </div>
             <div className="info-item">
               <FaMapMarkerAlt />
