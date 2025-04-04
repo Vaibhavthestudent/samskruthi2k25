@@ -625,9 +625,14 @@ const Home = () => {
                 src={samskruthiLogo} 
                 alt="Samskruthi 2025" 
                 style={{ 
-                  maxWidth: '600px', 
+                  maxWidth: '600px',
+                  width: '90%',
+                  height: 'auto',
                   margin: '0.0rem',
-                  filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5))'
+                  filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5))',
+                  '@media (max-width: 768px)': {
+                    maxWidth: '200px'
+                  }
                 }}
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
@@ -648,11 +653,28 @@ const Home = () => {
                 <CountdownTimer targetDate={eventDate} />
               </div>
               
-              <div className="buttons">
+              <div className="buttons" style={{ 
+                display: 'flex', 
+                gap: '1rem',
+                flexDirection: 'row',
+                '@media (max-width: 768px)': {
+                  flexDirection: 'column',
+                  width: '100%',
+                  maxWidth: '300px',
+                  margin: '0 auto'
+                }
+              }}>
                 <motion.a 
                   href="/src/assets/Samskruthi2k25.pdf" 
                   download
                   className="btn-primary"
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    '@media (max-width: 768px)': {
+                      width: '100%',
+                      textAlign: 'center'
+                    }
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -661,6 +683,13 @@ const Home = () => {
                 <motion.a 
                   href="/events" 
                   className="btn-primary"
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    '@media (max-width: 768px)': {
+                      width: '100%',
+                      textAlign: 'center'
+                    }
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
