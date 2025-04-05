@@ -342,14 +342,7 @@ const Events = () => {
               ))}
             </div>
             
-            <div className="controls">
-              <button onClick={prevSlide}>
-                <FaArrowLeft />
-              </button>
-              <button onClick={nextSlide}>
-                <FaArrowRight />
-              </button>
-            </div>
+            
             
             <div className="indicators">
               {onstageImages.map((_, index) => (

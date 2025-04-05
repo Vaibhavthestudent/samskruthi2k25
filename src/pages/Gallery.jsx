@@ -36,7 +36,17 @@ import image2k24_29 from '../assets/Resources/2k24/29.JPG';
 import image2k24_30 from '../assets/Resources/2k24/30.JPG';
 import image2k24_31 from '../assets/Resources/2k24/31.JPG';
 
-//2023 pics
+// Import images from 2k22 folder
+import image2k22_1 from '../assets/Resources/2k22/1.JPG';
+import image2k22_2 from '../assets/Resources/2k22/2.JPG';
+import image2k22_3 from '../assets/Resources/2k22/3.JPG';
+import image2k22_4 from '../assets/Resources/2k22/4.JPG';
+import image2k22_5 from '../assets/Resources/2k22/5.JPG';
+import image2k22_6 from '../assets/Resources/2k22/6.JPG';
+import image2k22_7 from '../assets/Resources/2k22/7.JPG';
+
+
+// Import images from 2k23 folder
 import image2k23_1 from '../assets/Resources/2k23/1.jpg';
 import image2k23_2 from '../assets/Resources/2k23/2.jpg';
 import image2k23_3 from '../assets/Resources/2k23/3.jpg';
@@ -51,14 +61,8 @@ import image2k23_12 from '../assets/Resources/2k23/12.jpg';
 import image2k23_13 from '../assets/Resources/2k23/13.jpg';
 import image2k23_14 from '../assets/Resources/2k23/14.jpg';
 
-// 2022 pics
-import image2k22_1 from '../assets/Resources/2k22/1.JPG';
-import image2k22_2 from '../assets/Resources/2k22/2.JPG';
-import image2k22_3 from '../assets/Resources/2k22/3.JPG';
-import image2k22_4 from '../assets/Resources/2k22/4.JPG';
-import image2k22_5 from '../assets/Resources/2k22/5.JPG';
-import image2k22_6 from '../assets/Resources/2k22/6.JPG';
-import image2k22_7 from '../assets/Resources/2k22/7.JPG';
+
+
 
 // Modified to be more subtle since we have video background
 const DeepSeaBackground = styled.div`
@@ -70,8 +74,7 @@ const DeepSeaBackground = styled.div`
   z-index: -1;
   background: rgba(255, 255, 255, 0.4); /* Lighter background to work with video */
   overflow: hidden;
-  
-  /* Removed the animated SVG backgrounds since we have video */
+ 
 `;
 
 // Styled components for glassmorphic gallery
@@ -342,9 +345,11 @@ const Gallery = () => {
   
   // Gallery images from local folder
   const images = [
+    
     { src: image2k24_28, category: 'samskruthi2k24' },
-    { src: image2k23_1, category: 'samskruthi2k23' },
     { src: image2k24_1, category: 'samskruthi2k24' },
+    
+    { src: image2k23_4, category: 'samskruthi2k23' },
     { src: image2k24_2, category: 'samskruthi2k24' },
     { src: image2k24_3, category: 'samskruthi2k24' },
     { src: image2k24_4, category: 'samskruthi2k24' },
@@ -371,14 +376,13 @@ const Gallery = () => {
     { src: image2k24_25, category: 'samskruthi2k24' },
     { src: image2k24_26, category: 'samskruthi2k24' },
     { src: image2k24_27, category: 'samskruthi2k24' },
-    
     { src: image2k24_29, category: 'samskruthi2k24' },
     { src: image2k24_30, category: 'samskruthi2k24' },
     { src: image2k24_31, category: 'samskruthi2k24' },
-   
+
+    { src: image2k23_1, category: 'samskruthi2k23' },
     { src: image2k23_2, category: 'samskruthi2k23' },
     { src: image2k23_3, category: 'samskruthi2k23' },
-    { src: image2k23_4, category: 'samskruthi2k23' },
     { src: image2k23_5, category: 'samskruthi2k23' },
     { src: image2k23_6, category: 'samskruthi2k23' },
     { src: image2k23_7, category: 'samskruthi2k23' },
@@ -388,13 +392,7 @@ const Gallery = () => {
     { src: image2k23_12, category: 'samskruthi2k23' },
     { src: image2k23_13, category: 'samskruthi2k23' },
     { src: image2k23_14, category: 'samskruthi2k23' },
-    { src: image2k22_1, category: 'samskruthi2k22' },
-    { src: image2k22_2, category: 'samskruthi2k22' },
-    { src: image2k22_3, category: 'samskruthi2k22' },
-    { src: image2k22_4, category: 'samskruthi2k22' },
-    { src: image2k22_5, category: 'samskruthi2k22' },
-    { src: image2k22_6, category: 'samskruthi2k22' },
-    { src: image2k22_7, category: 'samskruthi2k22' }
+    
   ];
 
   useEffect(() => {
