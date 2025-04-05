@@ -41,9 +41,9 @@ import image2k22_1 from '../assets/Resources/2k22/1.JPG';
 import image2k22_2 from '../assets/Resources/2k22/2.JPG';
 import image2k22_3 from '../assets/Resources/2k22/3.JPG';
 import image2k22_4 from '../assets/Resources/2k22/4.JPG';
-import image2k22_5 from '../assets/Resources/2k22/5.jpg';
-import image2k22_6 from '../assets/Resources/2k22/6.jpg';
-import image2k22_7 from '../assets/Resources/2k22/7.jpg';
+import image2k22_5 from '../assets/Resources/2k22/5.JPG';
+import image2k22_6 from '../assets/Resources/2k22/6.JPG';
+import image2k22_7 from '../assets/Resources/2k22/7.JPG';
 
 
 // Import images from 2k23 folder
