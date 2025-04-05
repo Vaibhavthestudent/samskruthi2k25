@@ -25,6 +25,7 @@ import federal from '../assets/Resources/sponsor_logo/Federal_Bank.png';
 import printsec from '../assets/Resources/sponsor_logo/PrintSEC_Digital.jpg';
 import snackladder from '../assets/Resources/sponsor_logo/snack&ladder.png';
 import shotcircuit from '../assets/Resources/sponsor_logo/shot_circuit.png';
+import unibic from '../assets/Resources/sponsor_logo/unibic.png';
 
 
 
@@ -481,6 +482,7 @@ const Sponsors = () => {
   
   // Sponsor data with categories
   const sponsorData = [
+    { name: "UNIBIC", logo: unibic, category: "food" },
       { name: "TVS", logo: tvs, category: "automotive" },
     { name: "YAMAHA", logo: yamaha, category: "automotive" },
     { name: "KTM", logo: ktm, category: "automotive" },

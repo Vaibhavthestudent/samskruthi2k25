@@ -52,6 +52,15 @@ import crowd2 from '../assets/Resources/Gallery/Crowd/2.JPG';
 import crowd3 from '../assets/Resources/Gallery/Crowd/3.JPG';
 import crowd4 from '../assets/Resources/Gallery/Crowd/4.JPG';
 
+import samskruthi2k22_1 from '../assets/Resources/2k22/1.jpg';
+import samskruthi2k22_2 from '../assets/Resources/2k22/2.jpg';
+import samskruthi2k22_3 from '../assets/Resources/2k22/3.jpg';
+import samskruthi2k22_4 from '../assets/Resources/2k22/4.jpg';
+import samskruthi2k22_5 from '../assets/Resources/2k22/5.jpg';
+import samskruthi2k22_6 from '../assets/Resources/2k22/6.jpg';
+import samskruthi2k22_7 from '../assets/Resources/2k22/7.jpg';
+
+
 // Modified to be more subtle since we have video background
 const DeepSeaBackground = styled.div`
   position: fixed;
@@ -378,7 +387,14 @@ const Gallery = () => {
     { src: crowd1, title: 'Crowd Scene 1', category: 'samskruthi2k23' },
     { src: crowd2, title: 'Crowd Scene 2', category: 'samskruthi2k23' },
     { src: crowd3, title: 'Crowd Scene 3', category: 'samskruthi2k23' },
-    { src: crowd4, title: 'Crowd Scene 4', category: 'samskruthi2k23' }
+    { src: crowd4, title: 'Crowd Scene 4', category: 'samskruthi2k23' },
+    { src: samskruthi2k22_1, title: 'Samskruthi 2K22 1', category: 'samskruthi2k22' },
+    { src: samskruthi2k22_2, title: 'Samskruthi 2K22 2', category: 'samskruthi2k22' },
+    { src: samskruthi2k22_3, title: 'Samskruthi 2K22 3', category: 'samskruthi2k22' },
+    { src: samskruthi2k22_4, title: 'Samskruthi 2K22 4', category: 'samskruthi2k22' },
+    { src: samskruthi2k22_5, title: 'Samskruthi 2K22 5', category: 'samskruthi2k22' },
+    { src: samskruthi2k22_6, title: 'Samskruthi 2K22 6', category: 'samskruthi2k22' },
+    { src: samskruthi2k22_7, title: 'Samskruthi 2K22 7', category: 'samskruthi2k22' }
   ];
 
   useEffect(() => {

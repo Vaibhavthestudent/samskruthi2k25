@@ -261,7 +261,7 @@ const Events = () => {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setCurrentSlide((prev) => (prev === onstageImages.length - 1 ? 0 : prev + 1));
-      }, 2500);
+      }, 1500);
     }
     return () => clearInterval(interval);
   }, [isAutoPlaying]);

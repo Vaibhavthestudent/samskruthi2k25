@@ -842,6 +842,15 @@ const Home = () => {
                     padding: '0.75rem 1.5rem',
                     width: '100%',
                     textAlign: 'center',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                    border: '2px solid rgba(3, 4, 94, 0.2)',
+                    borderRadius: '12px',
+                    color: '#03045e',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+                    transition: 'all 0.3s ease',
                     '@media (max-width: 992px)': {
                       padding: '0.7rem 1.3rem',
                       fontSize: '0.95rem'
@@ -869,6 +878,12 @@ const Home = () => {
                     '@media (max-width: 320px)': {
                       padding: '0.35rem 0.7rem',
                       fontSize: '0.65rem'
+                    },
+                    '&:hover': {
+                      background: 'rgba(255, 255, 255, 1)',
+                      border: '2px solid rgba(3, 4, 94, 0.3)',
+                      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
+                      transform: 'translateY(-2px)'
                     }
                   }}
                   whileHover={{ scale: 1.05 }}
@@ -883,6 +898,15 @@ const Home = () => {
                     padding: '0.75rem 1.5rem',
                     width: '100%',
                     textAlign: 'center',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                    border: '2px solid rgba(3, 4, 94, 0.2)',
+                    borderRadius: '12px',
+                    color: '#03045e',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+                    transition: 'all 0.3s ease',
                     '@media (max-width: 992px)': {
                       padding: '0.7rem 1.3rem',
                       fontSize: '0.95rem'
@@ -908,8 +932,14 @@ const Home = () => {
                       fontSize: '0.7rem'
                     },
                     '@media (max-width: 320px)': {
-                      padding: '0.45rem 0.9rem',
-                      fontSize: '0.35rem'
+                      padding: '0.35rem 0.7rem',
+                      fontSize: '0.65rem'
+                    },
+                    '&:hover': {
+                      background: 'rgba(255, 255, 255, 1)',
+                      border: '2px solid rgba(3, 4, 94, 0.3)',
+                      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
+                      transform: 'translateY(-2px)'
                     }
                   }}
                   whileHover={{ scale: 1.05 }}
