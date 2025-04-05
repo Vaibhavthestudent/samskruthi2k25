@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import video from '../assets/Resources/Gallery/background_video/hero_video.mp4';    
+import video from '../assets/Resources/Gallery/background_video/hero_bg.mp4';    
 
 const VideoContainer = styled.div`
   position: fixed;
