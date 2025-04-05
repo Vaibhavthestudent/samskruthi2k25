@@ -392,6 +392,13 @@ const Gallery = () => {
     { src: image2k23_12, category: 'samskruthi2k23' },
     { src: image2k23_13, category: 'samskruthi2k23' },
     { src: image2k23_14, category: 'samskruthi2k23' },
+    { src: image2k22_1, category: 'samskruthi2k22' },
+    { src: image2k22_2, category: 'samskruthi2k22' },
+    { src: image2k22_3, category: 'samskruthi2k22' },
+    { src: image2k22_4, category: 'samskruthi2k22' },
+    { src: image2k22_5, category: 'samskruthi2k22' },
+    { src: image2k22_6, category: 'samskruthi2k22' },
+    { src: image2k22_7, category: 'samskruthi2k22' },
     
   ];
 
