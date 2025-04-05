@@ -35,72 +35,59 @@ import unibic from '../assets/Resources/sponsor_logo/unibic.png';
 const PageContainer = styled.div`
   padding-top: 80px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 768px) {
-    padding-top: 60px;
+    padding-top: 70px;
   }
   
   @media (max-width: 480px) {
-    padding-top: 50px;
+    padding-top: 60px;
   }
 `;
 
 const HeroSection = styled.section`
-  padding: 5rem 0 3rem;
+  padding: 2rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  margin-top: 1rem;
   
   @media (max-width: 768px) {
-    padding: 3rem 0 2rem;
+    padding: 1.5rem 0;
+    margin-top: 0.5rem;
   }
   
   @media (max-width: 480px) {
-    padding: 2rem 0 1.5rem;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
   }
   
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    color: var(--deep-blue);
+    color: var(--text-color);
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
     padding: 0 1rem;
     
     @media (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
     
     @media (max-width: 480px) {
-      font-size: 2rem;
+      font-size: 1.75rem;
       margin-bottom: 0.75rem;
-    }
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: var(--coral);
-      
-      @media (max-width: 480px) {
-        width: 60px;
-        height: 2px;
-        bottom: -8px;
-      }
     }
   }
   
   p {
     max-width: 700px;
     margin: 0 auto 2rem;
-    color: #4b5563;
+    color: var(--text-color);
     font-size: 1.1rem;
     line-height: 1.6;
     padding: 0 1.5rem;
@@ -127,6 +114,8 @@ const SponsorsGrid = styled.div`
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
   
   @media (max-width: 1024px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -148,10 +137,12 @@ const SponsorsGrid = styled.div`
 `;
 
 const SponsorCard = styled(motion.div)`
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -202,7 +193,7 @@ const SponsorCard = styled(motion.div)`
   h3 {
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--deep-blue);
+    color: var(--text-color);
     margin: 0.5rem 0;
     text-align: center;
     
@@ -253,8 +244,8 @@ const SponsorCard = styled(motion.div)`
   }
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.37);
     
     .overlay {
       opacity: 1;
@@ -483,7 +474,7 @@ const Sponsors = () => {
   // Sponsor data with categories
   const sponsorData = [
     { name: "UNIBIC", logo: unibic, category: "food" },
-      { name: "TVS", logo: tvs, category: "automotive" },
+    { name: "TVS", logo: tvs, category: "automotive" },
     { name: "YAMAHA", logo: yamaha, category: "automotive" },
     { name: "KTM", logo: ktm, category: "automotive" },
     { name: "Mirchi", logo: mirchi, category: "media" },

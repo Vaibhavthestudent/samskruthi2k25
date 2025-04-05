@@ -3,18 +3,19 @@ import styled from 'styled-components';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser, FaHandshake } from 'react-icons/fa';
 
 const ContactContainer = styled.div`
-  padding: 2rem 0;
-  min-height: calc(100vh - 80px); /* Account for navbar height */
+  padding: 80px 0 2rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
   z-index: 1;
 
   @media (max-width: 768px) {
-    padding: 1.5rem 0;
-    min-height: calc(100vh - 70px);
+    padding: 70px 0 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 60px 0 1rem;
   }
 
   .container {
@@ -26,18 +27,23 @@ const ContactContainer = styled.div`
 
   h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     color: var(--text-color);
     font-size: 2.5rem;
     
     @media (max-width: 768px) {
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.75rem;
+      margin: 1rem 0;
     }
   }
 
   p {
-    color: #4b5563;
+    color: var(--text-color);
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto;
@@ -46,11 +52,14 @@ const ContactContainer = styled.div`
 
 const HeaderSection = styled(motion.div)`
   text-align: center;
-  margin-bottom: 3rem;
+  margin: 1rem 0 3rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
 
   h1 {
     font-size: 2.5rem;
-    color: #03045e;
+    color: var(--text-color);
     margin-bottom: 1rem;
     position: relative;
     display: inline-block;
@@ -69,14 +78,16 @@ const HeaderSection = styled(motion.div)`
   }
 
   p {
-    color: #4b5563;
+    color: var(--text-color);
     font-size: 1.1rem;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 1rem auto 0;
+    opacity: 0.9;
   }
 
   @media (max-width: 768px) {
-    margin-bottom: 2rem;
+    margin: 0.5rem 0 2rem;
+    padding: 0.5rem;
 
     h1 {
       font-size: 2rem;
@@ -85,6 +96,19 @@ const HeaderSection = styled(motion.div)`
     p {
       font-size: 1rem;
       padding: 0 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 0.25rem 0 1.5rem;
+    
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      padding: 0 0.5rem;
     }
   }
 `;

@@ -4,83 +4,96 @@ import styled from 'styled-components';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-// Import images with correct paths
-import image1 from '../assets/Resources/2k24/1.JPG';
-import image2 from '../assets/Resources/2k24/2.JPG';
-import image3 from '../assets/Resources/2k24/3.JPG';
-import image4 from '../assets/Resources/2k24/4.JPG';
-import image5 from '../assets/Resources/2k24/5.jpg';
-import image6 from '../assets/Resources/2k24/6.jpg';
-import image7 from '../assets/Resources/2k24/7.jpg';
-import image8 from '../assets/Resources/2k24/8.jpg';
-import image9 from '../assets/Resources/2k24/9.jpg';
-import image10 from '../assets/Resources/2k24/10.jpg';
-import image11 from '../assets/Resources/2k24/11.jpg';
-import image12 from '../assets/Resources/2k24/12.jpg';
-import image13 from '../assets/Resources/2k24/13.jpg';
-import image14 from '../assets/Resources/2k24/14.jpg';
-import image15 from '../assets/Resources/2k24/15.jpg';
-import image16 from '../assets/Resources/2k24/16.jpg';
-import image17 from '../assets/Resources/2k24/17.jpg';
-import image18 from '../assets/Resources/2k24/18.jpg';
-import image19 from '../assets/Resources/2k24/19.JPG';
-import image20 from '../assets/Resources/2k24/20.jpg';
-import image21 from '../assets/Resources/2k24/21.jpg';
-import image22 from '../assets/Resources/2k24/22.jpg';
-import image23 from '../assets/Resources/2k24/23.jpg';
-import image24 from '../assets/Resources/2k24/24.jpg';
-import image25 from '../assets/Resources/2k24/25.jpg';
-import image26 from '../assets/Resources/2k24/26.jpg';
-import image27 from '../assets/Resources/2k24/27.jpg';
-import image28 from '../assets/Resources/2k24/28.JPG';
-import image29 from '../assets/Resources/2k24/29.JPG';
-import image30 from '../assets/Resources/2k24/30.JPG';
-import image31 from '../assets/Resources/2k24/31.JPG';
+import image1  from '../assets/Resources/events/1.jpg'
+import image2  from '../assets/Resources/events/2.jpg'
+import image3  from '../assets/Resources/events/3.jpg'
+import image4  from '../assets/Resources/events/4.jpg'
+import image5  from '../assets/Resources/events/5.jpg'
+import image6  from '../assets/Resources/events/6.jpg'
+import image7  from '../assets/Resources/events/7.jpg'
+import image8  from '../assets/Resources/events/8.jpg'
+import image9  from '../assets/Resources/events/9.jpg'
+import image10  from '../assets/Resources/events/10.jpg'
+import image11  from '../assets/Resources/events/11.jpg'
+import image12  from '../assets/Resources/events/12.jpg'
+
+
 
 const PageContainer = styled.div`
-  padding-top: 80px; /* Space for navbar */
+  padding: 80px 0 2rem;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    padding: 70px 0 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 60px 0 1rem;
+  }
 `;
 
 const HeroSection = styled.section`
-  background: linear-gradient(135deg, var(--deep-blue) 0%, #1a365d 100%);
-  color: white;
-  padding: 5rem 0;
   text-align: center;
+  margin: 1rem 0 3rem;
+  padding: 1rem;
   position: relative;
-  overflow: hidden;
-  
-//   .bubble {
-//     position: absolute;
-//     border-radius: 50%;
-//     background: rgba(255, 255, 255, 0.1);
-//     /* Removed the animation property */
-//   }
-  
-  /* Removed the @keyframes float animation */
+  z-index: 2;
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #0077b6;
+      border-radius: 2px;
+    }
+  }
+
+  p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 1rem auto 0;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    margin: 0.5rem 0 2rem;
+    padding: 0.5rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  }
 `;
 
 const EventSection = styled.section`
-  padding: 5rem 0;
-  background: ${props => props.bgColor || 'white'};
+  padding: 2rem 0;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: ${props => props.pattern ? 'url("/src/Resources/patterns/wave-pattern.svg")' : 'none'};
-    background-repeat: repeat;
-    background-size: 500px;
-    opacity: 0.03;
-    pointer-events: none;
-  }
+  z-index: 1;
   
   .section-title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-size: 2rem;
     position: relative;
     display: inline-block;
     
@@ -88,25 +101,43 @@ const EventSection = styled.section`
       content: '';
       position: absolute;
       bottom: -10px;
-      left: 0;
-      width: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
       height: 3px;
-      background: var(--coral);
+      background: #0077b6;
+      border-radius: 2px;
     }
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 `;
 
 const CarouselContainer = styled.div`
   position: relative;
-  margin: 3rem 0;
+  margin: 2rem auto;
+  max-width: 1000px;
   
   .carousel {
     display: flex;
     overflow: hidden;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     position: relative;
     height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     
     img {
       position: absolute;
@@ -121,56 +152,6 @@ const CarouselContainer = styled.div`
       }
     }
   }
-  
-  .controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    padding: 0 1rem;
-    z-index: 2;
-    
-    button {
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      
-      &:hover {
-        background: rgba(0, 0, 0, 0.7);
-      }
-    }
-  }
-  
-  .indicators {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    z-index: 2;
-    
-    .dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 50%;
-      background: #ccc;
-      margin: 0 0.25rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      
-      &.active {
-        background: var(--coral);
-      }
-    }
-  }
 `;
 
 const EventCardsGrid = styled.div`
@@ -181,32 +162,17 @@ const EventCardsGrid = styled.div`
 `;
 
 const EventCard = styled.div`
-  background: white;
-  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--coral);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  &:hover::before {
-    opacity: 1;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.5);
   }
   
   .card-content {
@@ -215,38 +181,41 @@ const EventCard = styled.div`
     
     h3 {
       font-size: 1.35rem;
-      color: var(--deep-blue);
+      color: var(--text-color);
       margin-bottom: 0.75rem;
       font-weight: 600;
     }
     
     p {
-      color: #4b5563;
+      color: var(--text-color);
       font-size: 0.95rem;
       margin-bottom: 1rem;
       line-height: 1.5;
+      opacity: 0.9;
     }
   }
 `;
 
 const RegisterButton = styled(Link)`
-  display: inline-block;
-  background: var(--coral);
-  color: white;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  font-weight: 600;
   padding: 0.85rem 2.5rem;
   border-radius: 9999px;
-  text-align: center;
+  text-decoration: none;
   margin: 2rem auto;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   
   &:hover {
-    background: #ff5a5a;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.5);
+    background: rgba(255, 255, 255, 0.2);
   }
 `;
 
@@ -277,7 +246,7 @@ const Events = () => {
   
   // On-stage event images
   const onstageImages = [
-    image5, image8, image12, image11, image19, image21, image26, image27
+    image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12
   ];
   
   // On-stage events data
@@ -305,10 +274,9 @@ const Events = () => {
   { "name": "Dance Battle", "description": "High-energy face-off" },
   { "name": "Photography", "description": "Capturing perfect moments" },
   { "name": "Mehendi", "description": "Intricate henna designs" },
-  { "name": "Treasure Hunt", "description": "Adventurous clue-solving" },
   { "name": "Quiz", "description": "Knowledge-testing challenge" },
   { "name": "Spoken Poetry", "description": "Expressive word artistry" },
-  { "name": "Body Building", "description": "Strength and aesthetics" }
+
   ];
   
   // Carousel navigation functions
@@ -328,8 +296,6 @@ const Events = () => {
     <PageContainer>
       {/* Hero Section */}
       <HeroSection>
-        
-        
         <div className="container mx-auto px-4">
           <motion.h1 
             className="text-4xl md:text-5xl font-bold mb-4"
@@ -418,7 +384,7 @@ const Events = () => {
           
           {/* Register button for on-stage events */}
           <div className="text-center">
-            <RegisterButton to="https://forms.gle/2zpD7ZEPirzLuG8s6">
+            <RegisterButton to="https://forms.gle/2zpD7ZEPirzLuG8s6" style={{backgroundColor: '#03045e', color: 'white'}}>
               Register for On-Stage Events
             </RegisterButton>
           </div>
@@ -457,7 +423,7 @@ const Events = () => {
           
           {/* Register button for off-stage events */}
           <div className="text-center">
-            <RegisterButton to="https://forms.gle/juJzqMwZhqJkZYQr8">
+            <RegisterButton to="https://forms.gle/juJzqMwZhqJkZYQr8" style={{backgroundColor: '#03045e', color: 'white'}}>
               Register for Off-Stage Events
             </RegisterButton>
           </div>

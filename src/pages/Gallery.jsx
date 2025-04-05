@@ -3,63 +3,62 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaSearch, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Import images with correct paths and extensions
-import image1 from '../assets/Resources/2k24/1.JPG';
-import image2 from '../assets/Resources/2k24/2.JPG';
-import image3 from '../assets/Resources/2k24/3.JPG';
-import image4 from '../assets/Resources/2k24/4.JPG';
-import image5 from '../assets/Resources/2k24/5.jpg';
-import image6 from '../assets/Resources/2k24/6.jpg';
-import image7 from '../assets/Resources/2k24/7.jpg';
-import image8 from '../assets/Resources/2k24/8.jpg';
-import image9 from '../assets/Resources/2k24/9.jpg';
-import image10 from '../assets/Resources/2k24/10.jpg';
-import image11 from '../assets/Resources/2k24/11.jpg';
-import image12 from '../assets/Resources/2k24/12.jpg';
-import image13 from '../assets/Resources/2k24/13.jpg';
-import image14 from '../assets/Resources/2k24/14.jpg';
-import image15 from '../assets/Resources/2k24/15.jpg';
-import image16 from '../assets/Resources/2k24/16.jpg';
-import image17 from '../assets/Resources/2k24/17.jpg';
-import image18 from '../assets/Resources/2k24/18.jpg';
-import image19 from '../assets/Resources/2k24/19.JPG';
-import image20 from '../assets/Resources/2k24/20.jpg';
-import image21 from '../assets/Resources/2k24/21.jpg';
-import image22 from '../assets/Resources/2k24/22.jpg';
-import image23 from '../assets/Resources/2k24/23.jpg';
-import image24 from '../assets/Resources/2k24/24.jpg';
-import image25 from '../assets/Resources/2k24/25.jpg';
-import image26 from '../assets/Resources/2k24/26.jpg';
-import image27 from '../assets/Resources/2k24/27.jpg';
-import image28 from '../assets/Resources/2k24/28.JPG';
-import image29 from '../assets/Resources/2k24/29.JPG';
-import image30 from '../assets/Resources/2k24/30.JPG';
-import image31 from '../assets/Resources/2k24/31.JPG';
+// 2024 pics
+import image2k24_1 from '../assets/Resources/2k24/1.jpg';
+import image2k24_2 from '../assets/Resources/2k24/2.jpg';
+import image2k24_3 from '../assets/Resources/2k24/3.jpg';
+import image2k24_4 from '../assets/Resources/2k24/4.jpg';
+import image2k24_5 from '../assets/Resources/2k24/5.jpg';
+import image2k24_6 from '../assets/Resources/2k24/6.jpg';
+import image2k24_7 from '../assets/Resources/2k24/7.jpg';
+import image2k24_8 from '../assets/Resources/2k24/8.jpg';
+import image2k24_9 from '../assets/Resources/2k24/9.jpg';
+import image2k24_10 from '../assets/Resources/2k24/10.jpg';
+import image2k24_11 from '../assets/Resources/2k24/11.jpg';
+import image2k24_12 from '../assets/Resources/2k24/12.jpg';
+import image2k24_13 from '../assets/Resources/2k24/13.jpg';
+import image2k24_14 from '../assets/Resources/2k24/14.jpg';
+import image2k24_15 from '../assets/Resources/2k24/15.jpg';
+import image2k24_16 from '../assets/Resources/2k24/16.jpg';
+import image2k24_17 from '../assets/Resources/2k24/17.jpg';
+import image2k24_18 from '../assets/Resources/2k24/18.jpg';
+import image2k24_19 from '../assets/Resources/2k24/19.jpg';
+import image2k24_20 from '../assets/Resources/2k24/20.jpg';
+import image2k24_21 from '../assets/Resources/2k24/21.jpg';
+import image2k24_22 from '../assets/Resources/2k24/22.jpg';
+import image2k24_23 from '../assets/Resources/2k24/23.jpg';
+import image2k24_24 from '../assets/Resources/2k24/24.jpg';
+import image2k24_25 from '../assets/Resources/2k24/25.jpg';
+import image2k24_26 from '../assets/Resources/2k24/26.jpg';
+import image2k24_27 from '../assets/Resources/2k24/27.jpg';
+import image2k24_28 from '../assets/Resources/2k24/28.JPG';
+import image2k24_29 from '../assets/Resources/2k24/29.JPG';
+import image2k24_30 from '../assets/Resources/2k24/30.JPG';
+import image2k24_31 from '../assets/Resources/2k24/31.JPG';
 
-// Import images from Gallery directory with correct case and extensions
-import benny1 from '../assets/Resources/Gallery/Benny/1.JPG';
-import benny2 from '../assets/Resources/Gallery/Benny/2.JPG';
-import benny3 from '../assets/Resources/Gallery/Benny/3.JPG';
-import benny4 from '../assets/Resources/Gallery/Benny/4.JPG';
-import dance1 from '../assets/Resources/Gallery/Dance/1.JPG';
-import dance2 from '../assets/Resources/Gallery/Dance/2.JPG';
-import dance3 from '../assets/Resources/Gallery/Dance/3.JPG';
-import dance4 from '../assets/Resources/Gallery/Dance/4.JPG';
-import dance5 from '../assets/Resources/Gallery/Dance/5.JPG';
-import dance6 from '../assets/Resources/Gallery/Dance/6.JPG';
-import crowd1 from '../assets/Resources/Gallery/Crowd/1.JPG';
-import crowd2 from '../assets/Resources/Gallery/Crowd/2.JPG';
-import crowd3 from '../assets/Resources/Gallery/Crowd/3.JPG';
-import crowd4 from '../assets/Resources/Gallery/Crowd/4.JPG';
+//2023 pics
+import image2k23_1 from '../assets/Resources/2k23/1.jpg';
+import image2k23_2 from '../assets/Resources/2k23/2.jpg';
+import image2k23_3 from '../assets/Resources/2k23/3.jpg';
+import image2k23_4 from '../assets/Resources/2k23/4.jpg';
+import image2k23_5 from '../assets/Resources/2k23/5.jpg';
+import image2k23_6 from '../assets/Resources/2k23/6.jpg';
+import image2k23_7 from '../assets/Resources/2k23/7.jpg';
+import image2k23_8 from '../assets/Resources/2k23/8.jpg';
+import image2k23_10 from '../assets/Resources/2k23/10.jpg';
+import image2k23_11 from '../assets/Resources/2k23/11.jpg';
+import image2k23_12 from '../assets/Resources/2k23/12.jpg';
+import image2k23_13 from '../assets/Resources/2k23/13.jpg';
+import image2k23_14 from '../assets/Resources/2k23/14.jpg';
 
-// Import images from 2k22 directory with correct case for extensions
-import samskruthi2k22_1 from '../assets/Resources/2k22/1.JPG';
-import samskruthi2k22_2 from '../assets/Resources/2k22/2.JPG';
-import samskruthi2k22_3 from '../assets/Resources/2k22/3.JPG';
-import samskruthi2k22_4 from '../assets/Resources/2k22/4.JPG';
-import samskruthi2k22_5 from '../assets/Resources/2k22/5.JPG';
-import samskruthi2k22_6 from '../assets/Resources/2k22/6.JPG';
-import samskruthi2k22_7 from '../assets/Resources/2k22/7.JPG';
+// 2022 pics
+import image2k22_1 from '../assets/Resources/2k22/1.JPG';
+import image2k22_2 from '../assets/Resources/2k22/2.JPG';
+import image2k22_3 from '../assets/Resources/2k22/3.JPG';
+import image2k22_4 from '../assets/Resources/2k22/4.JPG';
+import image2k22_5 from '../assets/Resources/2k22/5.JPG';
+import image2k22_6 from '../assets/Resources/2k22/6.JPG';
+import image2k22_7 from '../assets/Resources/2k22/7.JPG';
 
 // Modified to be more subtle since we have video background
 const DeepSeaBackground = styled.div`
@@ -343,58 +342,59 @@ const Gallery = () => {
   
   // Gallery images from local folder
   const images = [
-    { src: image1, title: 'Event 1', category: 'performance' },
-    { src: image2, title: 'Event 2', category: 'dance' },
-    { src: image3, title: 'Event 3', category: 'music' },
-    { src: image4, title: 'Event 4', category: 'fashion' },
-    { src: image5, title: 'Event 5', category: 'performance' },
-    { src: image6, title: 'Event 6', category: 'dance' },
-    { src: image7, title: 'Event 7', category: 'music' },
-    { src: image8, title: 'Event 8', category: 'fashion' },
-    { src: image9, title: 'Event 9', category: 'performance' },
-    { src: image10, title: 'Event 10', category: 'dance' },
-    { src: image11, title: 'Event 11', category: 'music' },
-    { src: image12, title: 'Event 12', category: 'fashion' },
-    { src: image13, title: 'Event 13', category: 'performance' },
-    { src: image14, title: 'Event 14', category: 'dance' },
-    { src: image15, title: 'Event 15', category: 'music' },
-    { src: image16, title: 'Event 16', category: 'fashion' },
-    { src: image17, title: 'Event 17', category: 'performance' },
-    { src: image18, title: 'Event 18', category: 'dance' },
-    { src: image19, title: 'Event 19', category: 'music' },
-    { src: image20, title: 'Event 20', category: 'fashion' },
-    { src: image21, title: 'Event 21', category: 'performance' },
-    { src: image22, title: 'Event 22', category: 'dance' },
-    { src: image23, title: 'Event 23', category: 'music' },
-    { src: image24, title: 'Event 24', category: 'fashion' },
-    { src: image25, title: 'Event 25', category: 'performance' },
-    { src: image26, title: 'Event 26', category: 'dance' },
-    { src: image27, title: 'Event 27', category: 'music' },
-    { src: image28, title: 'Event 28', category: 'fashion' },
-    { src: image29, title: 'Event 29', category: 'performance' },
-    { src: image30, title: 'Event 30', category: 'dance' },
-    { src: image31, title: 'Event 31', category: 'music' },
-    { src: benny1, title: 'Benny Performance 1', category: 'samskruthi2k23' },
-    { src: benny2, title: 'Benny Performance 2', category: 'samskruthi2k23' },
-    { src: benny3, title: 'Benny Performance 3', category: 'samskruthi2k23' },
-    { src: benny4, title: 'Benny Performance 4', category: 'samskruthi2k23' },
-    { src: dance1, title: 'Dance Performance 1', category: 'samskruthi2k23' },
-    { src: dance2, title: 'Dance Performance 2', category: 'samskruthi2k23' },
-    { src: dance3, title: 'Dance Performance 3', category: 'samskruthi2k23' },
-    { src: dance4, title: 'Dance Performance 4', category: 'samskruthi2k23' },
-    { src: dance5, title: 'Dance Performance 5', category: 'samskruthi2k23' },
-    { src: dance6, title: 'Dance Performance 6', category: 'samskruthi2k23' },
-    { src: crowd1, title: 'Crowd Scene 1', category: 'samskruthi2k23' },
-    { src: crowd2, title: 'Crowd Scene 2', category: 'samskruthi2k23' },
-    { src: crowd3, title: 'Crowd Scene 3', category: 'samskruthi2k23' },
-    { src: crowd4, title: 'Crowd Scene 4', category: 'samskruthi2k23' },
-    { src: samskruthi2k22_1, title: 'Samskruthi 2K22 1', category: 'samskruthi2k22' },
-    { src: samskruthi2k22_2, title: 'Samskruthi 2K22 2', category: 'samskruthi2k22' },
-    { src: samskruthi2k22_3, title: 'Samskruthi 2K22 3', category: 'samskruthi2k22' },
-    { src: samskruthi2k22_4, title: 'Samskruthi 2K22 4', category: 'samskruthi2k22' },
-    { src: samskruthi2k22_5, title: 'Samskruthi 2K22 5', category: 'samskruthi2k22' },
-    { src: samskruthi2k22_6, title: 'Samskruthi 2K22 6', category: 'samskruthi2k22' },
-    { src: samskruthi2k22_7, title: 'Samskruthi 2K22 7', category: 'samskruthi2k22' }
+    { src: image2k24_28, category: 'samskruthi2k24' },
+    { src: image2k23_1, category: 'samskruthi2k23' },
+    { src: image2k24_1, category: 'samskruthi2k24' },
+    { src: image2k24_2, category: 'samskruthi2k24' },
+    { src: image2k24_3, category: 'samskruthi2k24' },
+    { src: image2k24_4, category: 'samskruthi2k24' },
+    { src: image2k24_5, category: 'samskruthi2k24' },
+    { src: image2k24_6, category: 'samskruthi2k24' },
+    { src: image2k24_7, category: 'samskruthi2k24' },
+    { src: image2k24_8, category: 'samskruthi2k24' },
+    { src: image2k24_9, category: 'samskruthi2k24' },
+    { src: image2k24_10, category: 'samskruthi2k24' },
+    { src: image2k24_11, category: 'samskruthi2k24' },
+    { src: image2k24_12, category: 'samskruthi2k24' },
+    { src: image2k24_13, category: 'samskruthi2k24' },
+    { src: image2k24_14, category: 'samskruthi2k24' },
+    { src: image2k24_15, category: 'samskruthi2k24' },
+    { src: image2k24_16, category: 'samskruthi2k24' },
+    { src: image2k24_17, category: 'samskruthi2k24' },
+    { src: image2k24_18, category: 'samskruthi2k24' },
+    { src: image2k24_19, category: 'samskruthi2k24' },
+    { src: image2k24_20, category: 'samskruthi2k24' },
+    { src: image2k24_21, category: 'samskruthi2k24' },
+    { src: image2k24_22, category: 'samskruthi2k24' },
+    { src: image2k24_23, category: 'samskruthi2k24' },
+    { src: image2k24_24, category: 'samskruthi2k24' },
+    { src: image2k24_25, category: 'samskruthi2k24' },
+    { src: image2k24_26, category: 'samskruthi2k24' },
+    { src: image2k24_27, category: 'samskruthi2k24' },
+    
+    { src: image2k24_29, category: 'samskruthi2k24' },
+    { src: image2k24_30, category: 'samskruthi2k24' },
+    { src: image2k24_31, category: 'samskruthi2k24' },
+   
+    { src: image2k23_2, category: 'samskruthi2k23' },
+    { src: image2k23_3, category: 'samskruthi2k23' },
+    { src: image2k23_4, category: 'samskruthi2k23' },
+    { src: image2k23_5, category: 'samskruthi2k23' },
+    { src: image2k23_6, category: 'samskruthi2k23' },
+    { src: image2k23_7, category: 'samskruthi2k23' },
+    { src: image2k23_8, category: 'samskruthi2k23' },
+    { src: image2k23_10, category: 'samskruthi2k23' },
+    { src: image2k23_11, category: 'samskruthi2k23' },
+    { src: image2k23_12, category: 'samskruthi2k23' },
+    { src: image2k23_13, category: 'samskruthi2k23' },
+    { src: image2k23_14, category: 'samskruthi2k23' },
+    { src: image2k22_1, category: 'samskruthi2k22' },
+    { src: image2k22_2, category: 'samskruthi2k22' },
+    { src: image2k22_3, category: 'samskruthi2k22' },
+    { src: image2k22_4, category: 'samskruthi2k22' },
+    { src: image2k22_5, category: 'samskruthi2k22' },
+    { src: image2k22_6, category: 'samskruthi2k22' },
+    { src: image2k22_7, category: 'samskruthi2k22' }
   ];
 
   useEffect(() => {

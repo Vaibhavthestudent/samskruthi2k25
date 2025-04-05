@@ -317,7 +317,7 @@ const GlobalStyle = createGlobalStyle`
 
   main {
     flex: 1;
-    padding-top: 80px; /* Add padding to account for fixed navbar */
+    padding-top: 1 0px; /* Add padding to account for fixed navbar */
     position: relative;
     z-index: 1;
     

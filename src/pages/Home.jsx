@@ -7,12 +7,11 @@ import CountdownTimer from '../components/CountdownTimer';
 
 import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
 import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png';
-import jonitha from '../assets/Resources/2k24/28.JPG';
-import fashionShow from '../assets/Resources/Gallery/Fashion_Show.jpg';
-import bands from '../assets/Resources/Gallery/Bands.JPG';
-import dj from '../assets/Resources/Gallery/DJ.JPG';
-import bannerReveal from '../assets/Resources/Gallery/BANNER_REVEAL.JPG';
-import banner from '../assets/Resources/Gallery/banner.jpg';
+import concert from '../assets/Resources/featured_events/concert.jpg';
+import dj from '../assets/Resources/featured_events/DJ.jpg';
+import bands from '../assets/Resources/featured_events/Bands.jpg';
+import fashionShow from '../assets/Resources/featured_events/Fashion_Show.jpg';
+import banner from '../assets/Resources/featured_events/banner.jpg';
 import pdf from '../assets/Samskruthi2K25.pdf';    
 
 const HeroSection = styled.section`
@@ -511,8 +510,8 @@ const galleryImages = [
     description: 'An electrifying night of music and dance'
   },
   {
-    src: bannerReveal,
-    title: 'Banner Reveal',
+    src: banner,
+    title: 'Banner',
     description: 'The grand unveiling of Samskruthi 2025'
   }
 ];
@@ -545,7 +544,7 @@ const Home = () => {
     {
       title: "Live Concert",
       category: "Music",
-      image: jonitha
+      image: concert
     },
     {
       title: "DJ Night",
