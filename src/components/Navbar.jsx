@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
 import epgiLogohalf from '../assets/Resources/logos/EPGI_LOGO_HALF.png';
+import RegisterModal from './RegisterModal';
 
 // Update the Logo container with glassmorphic effect
 const LogoContainer = styled.div`
@@ -157,6 +158,7 @@ const GlassButton = styled.a`
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const menuRef = useRef(null);
 
@@ -188,6 +190,13 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Events', path: '/events' },
@@ -198,77 +207,80 @@ const Navbar = () => {
 
   // In the return statement, update the img tags with specific classes
   return (
-    <NavbarContainer scrolled={scrolled}>
-      <NavContent>
-        <Link to="/">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <LogoContainer>
-              <img className="epgi-logo" src={epgiLogohalf} alt="EPGI Logo" />
-              <div className="divider"></div>
-              <img className="samskruthi-logo" src={samskruthiLogo} alt="Samskruthi 2025 Logo" style={{filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.2))'}}/>
-            </LogoContainer>
-          </motion.div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <DesktopMenu>
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              active={location.pathname === link.path ? 1 : 0}
+    <>
+      <NavbarContainer scrolled={scrolled}>
+        <NavContent>
+          <Link to="/">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              {link.name}
-            </NavLink>
-          ))}
-          <GlassButton as={Link} to="/events">
-            Register Now
-          </GlassButton>
-        </DesktopMenu>
+              <LogoContainer>
+                <img className="epgi-logo" src={epgiLogohalf} alt="EPGI Logo" />
+                <div className="divider"></div>
+                <img className="samskruthi-logo" src={samskruthiLogo} alt="Samskruthi 2025 Logo" style={{filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.2))'}}/>
+              </LogoContainer>
+            </motion.div>
+          </Link>
 
-        {/* Mobile Navigation Toggle */}
-        <MobileMenuButton onClick={toggleMenu} aria-label="Toggle menu">
-          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </MobileMenuButton>
-      </NavContent>
-
-      {/* Mobile Navigation Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <MobileMenu
-            ref={menuRef}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div style={{padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-              {navLinks.map((link) => (
-                <MobileNavLink
-                  key={link.name}
-                  to={link.path}
-                  active={location.pathname === link.path ? 1 : 0}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </MobileNavLink>
-              ))}
-              <GlassButton 
-                href="#register" 
-                style={{textAlign: 'center', marginTop: '0.5rem'}}
-                onClick={() => setIsOpen(false)}
+          {/* Desktop Navigation */}
+          <DesktopMenu>
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                active={location.pathname === link.path ? 1 : 0}
               >
-                Register Now
-              </GlassButton>
-            </div>
-          </MobileMenu>
-        )}
-      </AnimatePresence>
-    </NavbarContainer>
+                {link.name}
+              </NavLink>
+            ))}
+            <GlassButton onClick={toggleModal}>
+              Register Now
+            </GlassButton>
+          </DesktopMenu>
+
+          {/* Mobile Navigation Toggle */}
+          <MobileMenuButton onClick={toggleMenu} aria-label="Toggle menu">
+            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </MobileMenuButton>
+        </NavContent>
+
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <MobileMenu
+              ref={menuRef}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div style={{padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
+                {navLinks.map((link) => (
+                  <MobileNavLink
+                    key={link.name}
+                    to={link.path}
+                    active={location.pathname === link.path ? 1 : 0}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </MobileNavLink>
+                ))}
+                <GlassButton 
+                  onClick={toggleModal}
+                  style={{textAlign: 'center', marginTop: '0.5rem'}}
+                >
+                  Register Now
+                </GlassButton>
+              </div>
+            </MobileMenu>
+          )}
+        </AnimatePresence>
+      </NavbarContainer>
+
+      <RegisterModal isOpen={isModalOpen} onClose={toggleModal} />
+    </>
   );
 };
 

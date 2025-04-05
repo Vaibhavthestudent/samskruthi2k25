@@ -1,9 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styled from 'styled-components';
 import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt, FaUsers } from 'react-icons/fa';
 import CountdownTimer from '../components/CountdownTimer';
+import RegisterModal from '../components/RegisterModal';
 
 import samskruthiLogo from '../assets/Resources/logos/samskruthilogo.png';
 import epgiLogo from '../assets/Resources/logos/EPGI_LOGO.png';
@@ -517,8 +518,12 @@ const galleryImages = [
 ];
 
 const Home = () => {
-  // Sample event date - replace with actual date
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const eventDate = "2025-04-24T09:00:00";
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   // Highlights data
   const highlights = [
@@ -887,9 +892,13 @@ const Home = () => {
                 >
                   Download Brochure
                 </motion.a>
-                <motion.a 
-                  href="/events" 
+                <motion.a
+                  href="#"
                   className="btn-primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleModal();
+                  }}
                   style={{
                     padding: '0.75rem 1.5rem',
                     width: '100%',
@@ -1086,12 +1095,36 @@ const Home = () => {
             <p>
               Register now to participate in Samskruthi 2025 and immerse yourself in a world of creativity, talent, and cultural celebration.
             </p>
-            <a href="/Events" className="register-button">
-              Register Now <FaArrowRight size={16} />
+            <a 
+              href="#" 
+              className="register-button"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleModal();
+              }}
+              style={{
+                background: 'var(--coral)',
+                color: 'white',
+                fontWeight: '700',
+                padding: '0.75rem 2rem',
+                borderRadius: '9999px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                transition: 'background-color 0.3s ease',
+                fontSize: '1.125rem',
+                textDecoration: 'none',
+                '&:hover': {
+                  background: 'rgba(255, 107, 107, 0.8)'
+                }
+              }}
+            >
+              Register Now <FaArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
             </a>
           </motion.div>
         </div>
       </CTASection>
+
+      <RegisterModal isOpen={isModalOpen} onClose={toggleModal} />
     </div>
   );
 };
