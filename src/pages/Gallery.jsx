@@ -31,19 +31,19 @@ import image2k24_24 from '../assets/Resources/2k24/24.jpg';
 import image2k24_25 from '../assets/Resources/2k24/25.jpg';
 import image2k24_26 from '../assets/Resources/2k24/26.jpg';
 import image2k24_27 from '../assets/Resources/2k24/27.jpg';
-import image2k24_28 from '../assets/Resources/2k24/28.JPG';
-import image2k24_29 from '../assets/Resources/2k24/29.JPG';
-import image2k24_30 from '../assets/Resources/2k24/30.JPG';
-import image2k24_31 from '../assets/Resources/2k24/31.JPG';
+import image2k24_28 from '../assets/Resources/2k24/28.jpg';
+import image2k24_29 from '../assets/Resources/2k24/29.jpg';
+import image2k24_30 from '../assets/Resources/2k24/30.jpg';
+import image2k24_31 from '../assets/Resources/2k24/31.jpg';
 
 // Import images from 2k22 folder
-import image2k22_1 from '../assets/Resources/2k22/1.JPG';
-import image2k22_2 from '../assets/Resources/2k22/2.JPG';
-import image2k22_3 from '../assets/Resources/2k22/3.JPG';
-import image2k22_4 from '../assets/Resources/2k22/4.JPG';
-import image2k22_5 from '../assets/Resources/2k22/5.JPG';
-import image2k22_6 from '../assets/Resources/2k22/6.JPG';
-import image2k22_7 from '../assets/Resources/2k22/7.JPG';
+import image2k22_1 from '../assets/Resources/2k22/1.jpg';
+import image2k22_2 from '../assets/Resources/2k22/2.jpg';
+import image2k22_3 from '../assets/Resources/2k22/3.jpg';
+import image2k22_4 from '../assets/Resources/2k22/4.jpg';
+import image2k22_5 from '../assets/Resources/2k22/5.jpg';
+import image2k22_6 from '../assets/Resources/2k22/6.jpg';
+import image2k22_7 from '../assets/Resources/2k22/7.jpg';
 
 
 // Import images from 2k23 folder
