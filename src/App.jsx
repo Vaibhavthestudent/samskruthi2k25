@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { createGlobalStyle } from 'styled-components';
 import Navbar from './components/Navbar';
@@ -13,6 +13,7 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import VideoBackground from './components/VideoBackground';
 import Sponsors from './pages/Sponsors';
+import useScrollToTop from './hooks/useScrollToTop';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -307,29 +308,54 @@ const GlobalStyle = createGlobalStyle`
       display: none; /* Hide decorative elements on mobile */
     }
   }
+
+  .app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    padding-top: 80px; /* Add padding to account for fixed navbar */
+    position: relative;
+    z-index: 1;
+    
+    @media (max-width: 768px) {
+      padding-top: 70px; /* Slightly less padding on mobile */
+    }
+  }
 `;
+
+function AppContent() {
+  useScrollToTop();
+  
+  return (
+    <div className="app-container">
+      <VideoBackground />
+      <Navbar />
+      <main>
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/sponsors" element={<Sponsors />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<div className="container" style={{padding: '8rem 0', textAlign: 'center'}}><h1>Page Not Found</h1></div>} />
+          </Routes>
+        </AnimatePresence>
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   return (
     <Router>
       <GlobalStyle />
-      <div className="app-container">
-        <VideoBackground /> {/* If you have this component */}
-        <Navbar />
-        <main>
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/sponsors" element={<Sponsors />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<div className="container" style={{padding: '8rem 0', textAlign: 'center'}}><h1>Page Not Found</h1></div>} />
-            </Routes>
-          </AnimatePresence>
-        </main>
-        <Footer />
-      </div>
+      <AppContent />
     </Router>
   );
 }

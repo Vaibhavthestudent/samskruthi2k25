@@ -3,12 +3,44 @@ import styled from 'styled-components';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser, FaHandshake } from 'react-icons/fa';
 
 const ContactContainer = styled.div`
-  padding: 4rem 2rem;
-  background: #f8f9fa;
-  min-height: 100vh;
+  padding: 2rem 0;
+  min-height: calc(100vh - 80px); /* Account for navbar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem;
+    padding: 1.5rem 0;
+    min-height: calc(100vh - 70px);
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  p {
+    color: #4b5563;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
   }
 `;
 
